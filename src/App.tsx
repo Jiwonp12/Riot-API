@@ -7,6 +7,7 @@ import "./App.css";
 const queryClient = new QueryClient();
 const Root = lazy(() => import("./pages/Root"));
 const Main = lazy(() => import("./pages/Main"));
+const Search = lazy(() => import("./pages/Search"));
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense>
             <Main />
+          </Suspense>
+        ),
+      },
+      {
+        path: "search",
+        element: (
+          <Suspense>
+            <Search />
           </Suspense>
         ),
       },
