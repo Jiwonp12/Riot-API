@@ -5,6 +5,12 @@
   margin: 0;
 }
 
+html {
+  width: 100vw;
+}
+
 :root {
   --color-bg: #f4ce14;
+  --color-white: #f5f7f8;
+  --color-gray: #c3ac52;
 }
