@@ -2,21 +2,36 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import useGetSummonerQuery from "../../../queries/useGetSummonerQuery";
+import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { summonerAtom } from "../../../atoms/atom";
 
 function SearchBar() {
   const [summonerInput, setSummonerInput] = useState("");
-  const { isSuccess, data, refetch } = useGetSummonerQuery(summonerInput);
+  const setRecoilState = useSetRecoilState(summonerAtom);
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSummonerInput(e.target.value);
   };
 
   const handleClick = () => {
-    if (summonerInput.length) refetch();
+    if (summonerInput.length) {
+      setRecoilState(summonerInput);
+      setSummonerInput("");
+      navigate("/search");
+    }
   };
 
-  if (isSuccess) console.log(data);
+  const handleKeyUp = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      if (summonerInput.length) {
+        setRecoilState(summonerInput);
+        setSummonerInput("");
+        navigate("/search");
+      }
+    }
+  };
 
   return (
     <S_Label>
@@ -25,6 +40,7 @@ function SearchBar() {
         type="text"
         placeholder="소환사명을 입력해주세요."
         onChange={handleChange}
+        onKeyUp={handleKeyUp}
       ></input>
       <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClick} />
     </S_Label>
@@ -43,13 +59,14 @@ const S_Label = styled.label`
     border-radius: 4px;
     width: 600px;
     height: 40px;
+    background: var(--color-white);
     border: 1px solid var(--color-white);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
     font-size: 16px;
     position: relative;
 
     &::placeholder {
-      color: var(--color-gray);
+      color: var(--color-dark);
     }
     &:focus {
       outline: none;

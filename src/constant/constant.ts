@@ -1,1 +1,5 @@
-export const navLists = ["home", "home", "home", "home", "home"];
+export const navLists = [
+  { text: "Home", path: "/" },
+  { text: "Home", path: "/" },
+  { text: "Home", path: "/" },
+];
