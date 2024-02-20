@@ -4,7 +4,8 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { summonerAtom } from "../../../atoms/Atoms";
+
+import { summonerAtom } from "../../../atoms/atom";
 
 function SearchBar() {
   const [summonerInput, setSummonerInput] = useState("");
@@ -18,6 +19,7 @@ function SearchBar() {
   const handleClick = () => {
     if (summonerInput.length) {
       setRecoilState(summonerInput);
+      setSummonerInput("");
       navigate("/search");
     }
   };
@@ -26,6 +28,7 @@ function SearchBar() {
     if (e.key === "Enter") {
       if (summonerInput.length) {
         setRecoilState(summonerInput);
+        setSummonerInput("");
         navigate("/search");
       }
     }
@@ -57,13 +60,14 @@ const S_Label = styled.label`
     border-radius: 4px;
     width: 600px;
     height: 40px;
+    background: var(--color-white);
     border: 1px solid var(--color-white);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
     font-size: 16px;
     position: relative;
 
     &::placeholder {
-      color: var(--color-gray);
+      color: var(--color-dark);
     }
     &:focus {
       outline: none;
