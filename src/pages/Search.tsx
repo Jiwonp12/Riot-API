@@ -8,7 +8,6 @@ function Search() {
   const summoner = useRecoilValue(summonerAtom);
   const { isLoading, isSuccess, data, error } = useGetSummonerQuery(summoner);
 
-
   // if (isLoading) console.log("loading");
 
   // if (error) console.log("error");
@@ -41,24 +40,6 @@ function Search() {
         </S_Section>
         <Matches puuid={data.puuid} />
       </S_Main>
-      
-  if (isLoading) console.log("loading");
-
-  if (error) console.log("error");
-
-  if (isSuccess) {
-    console.log(data);
-    return (
-      <main>
-        <article>
-          <figure></figure>
-          <div>
-            <p>ID</p>
-            <p>something</p>
-          </div>
-        </article>
-        <section></section>
-      </main>
     );
   }
 }
