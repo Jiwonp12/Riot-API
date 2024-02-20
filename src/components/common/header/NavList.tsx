@@ -1,19 +1,22 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { navLists } from "./../../../constant/constant";
+import { useNavigate } from "react-router-dom";
 
 function NavList() {
   const [clickedList, setClickedList] = useState(0);
+  const navigate = useNavigate();
 
   const handleClick = (idx: number) => {
     setClickedList(idx);
+    navigate(navLists[idx].path);
   };
 
   return (
     <S_Ul>
-      {navLists.map((text, idx) => (
+      {navLists.map((nav, idx) => (
         <li key={idx} onClick={() => handleClick(idx)}>
-          <a className={clickedList === idx ? "active" : ""}>{text}</a>
+          <a className={clickedList === idx ? "active" : ""}>{nav.text}</a>
         </li>
       ))}
     </S_Ul>

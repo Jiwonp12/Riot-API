@@ -2,21 +2,34 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import useGetSummonerQuery from "../../../queries/useGetSummonerQuery";
+import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { summonerAtom } from "../../../atoms/Atoms";
 
 function SearchBar() {
   const [summonerInput, setSummonerInput] = useState("");
-  const { isSuccess, data, refetch } = useGetSummonerQuery(summonerInput);
+  const setRecoilState = useSetRecoilState(summonerAtom);
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSummonerInput(e.target.value);
   };
 
   const handleClick = () => {
-    if (summonerInput.length) refetch();
+    if (summonerInput.length) {
+      setRecoilState(summonerInput);
+      navigate("/search");
+    }
   };
 
-  if (isSuccess) console.log(data);
+  const handleKeyUp = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      if (summonerInput.length) {
+        setRecoilState(summonerInput);
+        navigate("/search");
+      }
+    }
+  };
 
   return (
     <S_Label>
@@ -25,6 +38,7 @@ function SearchBar() {
         type="text"
         placeholder="소환사명을 입력해주세요."
         onChange={handleChange}
+        onKeyUp={handleKeyUp}
       ></input>
       <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClick} />
     </S_Label>
