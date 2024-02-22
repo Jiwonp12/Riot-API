@@ -4,7 +4,8 @@ import Match from "./Match";
 
 function Matches({ puuid }: { puuid: string }) {
   const { isLoading, isSuccess, data, error } = useGetMatchesQuery(puuid);
-  if (isSuccess)
+
+  if (isSuccess) {
     return (
       <S_Section>
         {data.map((id: string) => (
@@ -12,6 +13,7 @@ function Matches({ puuid }: { puuid: string }) {
         ))}
       </S_Section>
     );
+  }
 }
 
 export default Matches;
