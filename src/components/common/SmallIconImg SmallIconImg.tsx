@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { gameVersion } from "../../constant/constant";
-import { ItemOrSpellType } from "../../types/types";
+import { SmallIconImgType } from "../../types/types";
 
-function ItemOrSpellImg({ item, spell }: ItemOrSpellType) {
+function SmallIconImg({ item, spell, rune }: SmallIconImgType) {
   if (item) {
     return (
       <S_figure>
@@ -26,8 +26,16 @@ function ItemOrSpellImg({ item, spell }: ItemOrSpellType) {
       </S_figure>
     );
   }
+
+  if (rune) {
+    return (
+      <S_figure>
+        <img src={`${rune}`} alt={`${rune} icon`} />
+      </S_figure>
+    );
+  }
 }
-export default ItemOrSpellImg;
+export default SmallIconImg;
 
 const S_figure = styled.figure`
   width: 32px;

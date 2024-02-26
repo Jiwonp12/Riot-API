@@ -30,3 +30,10 @@ export const GetSpellData = () =>
       `https://ddragon.leagueoflegends.com/cdn/${gameVersion}/data/ko_KR/summoner.json`
     )
     .then(res => res.data);
+
+export const GetRuneData = () =>
+  axios
+    .get(
+      `https://ddragon.leagueoflegends.com/cdn/${gameVersion}/data/ko_KR/runesReforged.json`
+    )
+    .then(res => res.data);
