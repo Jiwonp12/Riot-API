@@ -1,4 +1,5 @@
 import axios from "axios";
+import { gameVersion } from "../constant/constant";
 
 const key = import.meta.env.VITE_RIOT_API;
 
@@ -20,5 +21,12 @@ export const GetMatchesInfo = (matchId: string) =>
   axios
     .get(
       `https://asia.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${key}`
+    )
+    .then(res => res.data);
+
+export const GetSpellData = () =>
+  axios
+    .get(
+      `https://ddragon.leagueoflegends.com/cdn/${gameVersion}/data/ko_KR/summoner.json`
     )
     .then(res => res.data);
