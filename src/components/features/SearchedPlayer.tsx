@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Player } from "../../types/types";
+import { gameVersion } from "../../constant/constant";
 
 function SearchedPlayer({ data }: { data: Player }) {
   const time = Math.floor(
@@ -11,7 +12,7 @@ function SearchedPlayer({ data }: { data: Player }) {
       <figure>
         <span>{data.summonerLevel}</span>
         <img
-          src={`https://ddragon.leagueoflegends.com/cdn/14.3.1/img/profileicon/${data.profileIconId}.png`}
+          src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/profileicon/${data.profileIconId}.png`}
           alt="summoner icon"
         />
       </figure>

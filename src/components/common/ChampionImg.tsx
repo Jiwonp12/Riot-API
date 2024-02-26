@@ -1,11 +1,18 @@
 import styled from "styled-components";
+import { gameVersion } from "../../constant/constant";
 
-function ChampionImg({ champion }: { champion: string }) {
+function ChampionImg({
+  champion,
+  champLevel,
+}: {
+  champion: string;
+  champLevel: number;
+}) {
   return (
     <S_figure>
-      <span></span>
+      <span>{champLevel}</span>
       <img
-        src={`https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${champion}.png`}
+        src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/champion/${champion}.png`}
         alt={`${champion} icon`}
       />
     </S_figure>
