@@ -1,8 +1,13 @@
 import { atom } from "recoil";
-import { Spell } from "../types/types";
+import { Rune, Spell } from "../types/types";
 
-export const spellData = atom<Spell[]>({
-  key: "spellData",
+export const spellAtom = atom<Spell[]>({
+  key: "spellAtom",
+  default: [],
+});
+
+export const runeAtom = atom<Rune[]>({
+  key: "runeAtom",
   default: [],
 });
 

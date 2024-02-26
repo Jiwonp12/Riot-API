@@ -16,9 +16,10 @@ export type Teams = {
   teamId: number;
 };
 
-export type ItemOrSpellType = {
+export type SmallIconImgType = {
   item?: number | undefined;
   spell?: Spell | undefined;
+  rune?: string | undefined;
 };
 
 export type Spell = {
@@ -50,4 +51,15 @@ export type Spell = {
   summonerLevel: number;
   tooltip: string;
   vars: [];
+};
+
+export type Rune = {
+  icon: string;
+  id: number;
+  key: string;
+  name: string;
+  longDesc: string;
+  shortDesc: string;
+  runes: Rune[];
+  slots: Rune[];
 };

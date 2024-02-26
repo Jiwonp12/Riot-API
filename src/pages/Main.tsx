@@ -1,16 +1,25 @@
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import useGetSpellData from "../queries/useGetSpellData";
-import { spellData } from "../atoms/atom";
+import useGetRuneData from "../queries/useGetRuneData";
+import { runeAtom, spellAtom } from "../atoms/atom";
 import { Spell } from "../types/types";
 
 function Main() {
-  const { isSuccess, data } = useGetSpellData();
-  const [recoilState, setRecoilState] = useRecoilState<Spell[]>(spellData);
+  const { isSuccess: spellIsSuccess, data: spellData } = useGetSpellData();
+  const { isSuccess: runeIsSuccess, data: runeData } = useGetRuneData();
+  const [spellState, setSpellState] = useRecoilState<Spell[]>(spellAtom);
+  const [runeState, setRuneState] = useRecoilState(runeAtom);
 
-  if (isSuccess && recoilState.length === 0) {
+  if (spellIsSuccess && spellState.length === 0) {
     setTimeout(() => {
-      setRecoilState([...Object.values(data.data)] as Spell[]);
+      setSpellState([...Object.values(spellData.data)] as Spell[]);
+    }, 0);
+  }
+
+  if (runeIsSuccess && runeState.length === 0) {
+    setTimeout(() => {
+      setRuneState([...runeData]);
     }, 0);
   }
 

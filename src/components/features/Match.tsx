@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import useGetMatchesInfoQuery from "../../queries/useGetMatchesInfo";
-import { spellData, summonerAtom } from "../../atoms/atom";
+import { runeAtom, spellAtom, summonerAtom } from "../../atoms/atom";
 import { Participants } from "../../types/types";
 import ChampionImg from "../common/ChampionImg";
-import ItemOrSpellImg from "../common/ItemOrSpellImg";
+import SmallIconImg from "./../common/SmallIconImg SmallIconImg";
 import { killType } from "../../constant/constant";
 
 function Match({ matchId }: { matchId: string }) {
   const { isLoading, isSuccess, data, error } = useGetMatchesInfoQuery(matchId);
   const summoner = useRecoilValue(summonerAtom);
-  const spells = useRecoilValue(spellData);
+  const spells = useRecoilValue(spellAtom);
+  const runes = useRecoilValue(runeAtom);
 
   if (isSuccess) {
     const hours = Math.floor(
@@ -28,7 +29,26 @@ function Match({ matchId }: { matchId: string }) {
     const [spell1, spell2] = [player.summoner1Id, player.summoner2Id].map(
       spellId => spells.find(spell => Number(spell.key) === spellId)
     );
-    console.log(player);
+
+    const playerMainRune = player.perks.styles[0].selections[0].perk;
+    // const playerSubRune = player.perks.styles[0].selections[0].perk;
+    const runePage = runes.find(page =>
+      page.slots.some(slot =>
+        slot.runes.some(
+          picked => picked.id === player.perks.styles[0].selections[0].perk
+        )
+      )
+    );
+    const mainRunes = runePage!.slots.find(slot =>
+      slot.runes.some(
+        picked => picked.id === player.perks.styles[0].selections[0].perk
+      )
+    );
+    const mainRune = mainRunes!.runes.find(
+      picked => picked.id === player.perks.styles[0].selections[0].perk
+    );
+    console.log(mainRune);
+
     return (
       <S_Article className={player.win ? "win" : "lose"}>
         <div>
@@ -49,13 +69,14 @@ function Match({ matchId }: { matchId: string }) {
               champion={player.championName}
               champLevel={player.champLevel}
             />
-            <ItemOrSpellImg spell={spell1} />
-            <ItemOrSpellImg spell={spell2} />
+            <SmallIconImg spell={spell1} />
+            <SmallIconImg spell={spell2} />
+            <SmallIconImg rune={mainRune!.icon} />
           </S_Div>
           <S_Div>
             {Array.from({ length: 6 }, (_, idx) => idx).map(itemIndex => {
               return (
-                <ItemOrSpellImg
+                <SmallIconImg
                   key={`item${itemIndex}`}
                   item={player[`item${itemIndex}`]}
                 />
