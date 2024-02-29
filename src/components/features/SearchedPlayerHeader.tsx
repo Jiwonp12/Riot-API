@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Player } from "../../types/types";
 import { gameVersion } from "../../constant/constant";
 
-function SearchedPlayer({ data }: { data: Player }) {
+function SearchedPlayerHeader({ data }: { data: Player }) {
   const time = Math.floor(
     (new Date().getTime() - data.revisionDate) / (1000 * 60)
   );
@@ -29,7 +29,7 @@ function SearchedPlayer({ data }: { data: Player }) {
   );
 }
 
-export default SearchedPlayer;
+export default SearchedPlayerHeader;
 
 const S_Section = styled.section`
   display: flex;

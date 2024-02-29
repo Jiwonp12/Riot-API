@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { summonerAtom } from "../atoms/atom";
 import useGetSummonerQuery from "../queries/useGetSummonerQuery";
 import Matches from "../components/features/Matches";
-import SearchedPlayer from "../components/features/SearchedPlayer";
+import SearchedPlayerHeader from "../components/features/SearchedPlayerHeader";
 
 function Search() {
   const summoner = useRecoilValue(summonerAtom);
@@ -16,7 +16,7 @@ function Search() {
   if (isSuccess) {
     return (
       <S_Main>
-        <SearchedPlayer data={data} />
+        <SearchedPlayerHeader data={data} />
         <Matches puuid={data.puuid} />
       </S_Main>
     );

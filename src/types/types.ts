@@ -59,8 +59,15 @@ export type Rune = {
   id: number;
   key: string;
   name: string;
+  slots: RuneSlots[];
+};
+
+export type RuneSlots = {
+  icon: string;
+  id: number;
+  key: string;
+  name: string;
   longDesc: string;
   shortDesc: string;
   runes: Rune[];
-  slots: Rune[];
 };

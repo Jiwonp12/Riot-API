@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
-import useGetMatchesInfoQuery from "../../queries/useGetMatchesInfo";
-import { runeAtom, spellAtom, summonerAtom } from "../../atoms/atom";
-import { Participants } from "../../types/types";
-import ChampionImg from "../common/ChampionImg";
-import SmallIconImg from "./../common/SmallIconImg SmallIconImg";
-import { killTypes } from "../../constant/constant";
+import useGetMatchesInfoQuery from "../../../queries/useGetMatchesInfo";
+import { runeAtom, spellAtom, summonerAtom } from "../../../atoms/atom";
+import { Participants } from "../../../types/types";
+import ChampionImg from "../../common/ChampionImg";
+import SmallIconImg from "../../common/SmallIconImg SmallIconImg";
+import { killTypes } from "../../../constant/constant";
+import { findRune } from "../../../utils/findRune";
 
 function Match({ matchId }: { matchId: string }) {
   const { isLoading, isSuccess, data, error } = useGetMatchesInfoQuery(matchId);
@@ -32,30 +33,8 @@ function Match({ matchId }: { matchId: string }) {
 
     const playerMainRune = player.perks.styles[0].selections[0].perk;
     const playerSubRune = player.perks.styles[1].selections[0].perk;
-
-    const findRunePage = (playerRune: number) =>
-      runes.find(page =>
-        page.slots.some(slot =>
-          slot.runes.some(picked => picked.id === playerRune)
-        )
-      );
-
-    const findRunes = (playerMainRune: number) => {
-      const runePage = findRunePage(playerMainRune);
-      return runePage?.slots.find(slot =>
-        slot.runes.some(picked => picked.id === playerMainRune)
-      );
-    };
-
-    const findRune = (playerMainRune: number) => {
-      const mainRunes = findRunes(playerMainRune);
-      return mainRunes?.runes.find(picked => picked.id === playerMainRune);
-    };
-
-    const findPlayerRune = (playerSubRune: number) => findRune(playerSubRune);
-
-    const mainRune = findPlayerRune(playerMainRune);
-    const subRune = findPlayerRune(playerSubRune);
+    const mainRune = findRune(playerMainRune, runes);
+    const subRune = findRune(playerSubRune, runes);
 
     return (
       <S_Article className={player.win ? "win" : "lose"}>
