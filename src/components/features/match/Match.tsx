@@ -7,6 +7,10 @@ import ChampionImg from "../../common/ChampionImg";
 import SmallIconImg from "../../common/SmallIconImg SmallIconImg";
 import { killTypes } from "../../../constant/constant";
 import { findRune } from "../../../utils/findRune";
+import {
+  calculateDays,
+  calculateMinutes,
+} from "../../../utils/calculatePlayTime";
 
 function Match({ matchId }: { matchId: string }) {
   const { isLoading, isSuccess, data, error } = useGetMatchesInfoQuery(matchId);
@@ -15,12 +19,9 @@ function Match({ matchId }: { matchId: string }) {
   const runes = useRecoilValue(runeAtom);
 
   if (isSuccess) {
-    const hours = Math.floor(
-      (new Date().getTime() - data.info.gameEndTimestamp) / (1000 * 60 * 60)
-    );
-    const days = Math.floor(hours / 24);
-    const minutes = Math.floor(data.info.gameDuration / 60);
-    const seconds = data.info.gameDuration % 60;
+    const days = calculateDays(data.info.gameEndTimestamp);
+    const minutes = calculateMinutes(data.info.gameDuration);
+
     const [player] = data.info.participants.filter(
       (key: Participants) =>
         key.summonerName.toLowerCase() === summoner.toLowerCase()
@@ -46,9 +47,9 @@ function Match({ matchId }: { matchId: string }) {
               ? "칼바람"
               : "일반"}
           </p>
-          <p>{hours < 24 ? `${hours}시간 전` : `${days}일 전`}</p>
+          <p>{days}</p>
           <p>{player.win ? "승리" : "패배"}</p>
-          <p>{`${minutes}분 ${seconds}초`}</p>
+          <p>{minutes}</p>
         </div>
         <div>
           <S_Div>
