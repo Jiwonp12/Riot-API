@@ -18,8 +18,9 @@ export type Teams = {
 
 export type SmallIconImgType = {
   item?: number | undefined;
-  spell?: Spell | undefined;
-  rune?: string | undefined;
+  spell?: Spell;
+  mainRune?: string;
+  subRune?: string;
 };
 
 export type Spell = {
@@ -58,8 +59,15 @@ export type Rune = {
   id: number;
   key: string;
   name: string;
+  slots: RuneSlots[];
+};
+
+export type RuneSlots = {
+  icon: string;
+  id: number;
+  key: string;
+  name: string;
   longDesc: string;
   shortDesc: string;
   runes: Rune[];
-  slots: Rune[];
 };

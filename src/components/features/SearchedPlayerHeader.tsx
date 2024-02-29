@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { Player } from "../../types/types";
 import { gameVersion } from "../../constant/constant";
+import { calculateDays } from "../../utils/calculatePlayTime";
 
-function SearchedPlayer({ data }: { data: Player }) {
-  const time = Math.floor(
-    (new Date().getTime() - data.revisionDate) / (1000 * 60)
-  );
+function SearchedPlayerHeader({ data }: { data: Player }) {
+  const days = calculateDays(data.revisionDate);
 
   return (
     <S_Section>
@@ -20,16 +19,14 @@ function SearchedPlayer({ data }: { data: Player }) {
         <strong>{data.name}</strong>
         <span>
           last play:
-          {time > 60
-            ? `${Math.floor(time / 60)}시간 ${time % 60}분 전`
-            : `${time}분 전`}
+          {days}
         </span>
       </div>
     </S_Section>
   );
 }
 
-export default SearchedPlayer;
+export default SearchedPlayerHeader;
 
 const S_Section = styled.section`
   display: flex;

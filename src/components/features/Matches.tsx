@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import useGetMatchesQuery from "../../queries/useGetMatches";
-import Match from "./Match";
+import Match from "./match/Match";
 
 function Matches({ puuid }: { puuid: string }) {
   const { isLoading, isSuccess, data, error } = useGetMatchesQuery(puuid);

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { gameVersion } from "../../constant/constant";
+import { gameVersion, runeTypes } from "../../constant/constant";
 import { SmallIconImgType } from "../../types/types";
 
-function SmallIconImg({ item, spell, rune }: SmallIconImgType) {
+function SmallIconImg({ item, spell, mainRune, subRune }: SmallIconImgType) {
   if (item) {
     return (
       <S_figure>
@@ -14,9 +14,7 @@ function SmallIconImg({ item, spell, rune }: SmallIconImgType) {
         )}
       </S_figure>
     );
-  }
-
-  if (spell) {
+  } else if (spell) {
     return (
       <S_figure>
         <img
@@ -25,12 +23,27 @@ function SmallIconImg({ item, spell, rune }: SmallIconImgType) {
         />
       </S_figure>
     );
-  }
-
-  if (rune) {
+  } else if (mainRune) {
     return (
       <S_figure>
-        <img src={`${rune}`} alt={`${rune} icon`} />
+        <img
+          src={`https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${
+            mainRune.split("Styles/")[1]
+          }`}
+          alt={`${mainRune} icon`}
+        />
+      </S_figure>
+    );
+  } else if (subRune) {
+    const subRuneValue = runeTypes.find(
+      rune => rune.key === subRune.split("/")[2]
+    )?.value;
+    return (
+      <S_figure>
+        <img
+          src={`https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${subRuneValue}.png`}
+          alt={`${subRuneValue} icon`}
+        />
       </S_figure>
     );
   }
