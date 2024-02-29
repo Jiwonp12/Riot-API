@@ -5,7 +5,7 @@ import { runeAtom, spellAtom, summonerAtom } from "../../atoms/atom";
 import { Participants } from "../../types/types";
 import ChampionImg from "../common/ChampionImg";
 import SmallIconImg from "./../common/SmallIconImg SmallIconImg";
-import { killType } from "../../constant/constant";
+import { killTypes } from "../../constant/constant";
 
 function Match({ matchId }: { matchId: string }) {
   const { isLoading, isSuccess, data, error } = useGetMatchesInfoQuery(matchId);
@@ -25,29 +25,37 @@ function Match({ matchId }: { matchId: string }) {
         key.summonerName.toLowerCase() === summoner.toLowerCase()
     );
     const kda = `${player.kills}/${player.deaths}/${player.assists}`;
-    const playerKillType = killType.find(type => player[type] > 0);
+    const playerKillType = killTypes.find(type => player[type] > 0);
     const [spell1, spell2] = [player.summoner1Id, player.summoner2Id].map(
       spellId => spells.find(spell => Number(spell.key) === spellId)
     );
 
     const playerMainRune = player.perks.styles[0].selections[0].perk;
-    // const playerSubRune = player.perks.styles[0].selections[0].perk;
-    const runePage = runes.find(page =>
-      page.slots.some(slot =>
-        slot.runes.some(
-          picked => picked.id === player.perks.styles[0].selections[0].perk
+    const playerSubRune = player.perks.styles[1].selections[0].perk;
+
+    const findRunePage = (playerRune: number) =>
+      runes.find(page =>
+        page.slots.some(slot =>
+          slot.runes.some(picked => picked.id === playerRune)
         )
-      )
-    );
-    const mainRunes = runePage!.slots.find(slot =>
-      slot.runes.some(
-        picked => picked.id === player.perks.styles[0].selections[0].perk
-      )
-    );
-    const mainRune = mainRunes!.runes.find(
-      picked => picked.id === player.perks.styles[0].selections[0].perk
-    );
-    console.log(mainRune);
+      );
+
+    const findRunes = (playerMainRune: number) => {
+      const runePage = findRunePage(playerMainRune);
+      return runePage?.slots.find(slot =>
+        slot.runes.some(picked => picked.id === playerMainRune)
+      );
+    };
+
+    const findRune = (playerMainRune: number) => {
+      const mainRunes = findRunes(playerMainRune);
+      return mainRunes?.runes.find(picked => picked.id === playerMainRune);
+    };
+
+    const findPlayerRune = (playerSubRune: number) => findRune(playerSubRune);
+
+    const mainRune = findPlayerRune(playerMainRune);
+    const subRune = findPlayerRune(playerSubRune);
 
     return (
       <S_Article className={player.win ? "win" : "lose"}>
@@ -71,7 +79,8 @@ function Match({ matchId }: { matchId: string }) {
             />
             <SmallIconImg spell={spell1} />
             <SmallIconImg spell={spell2} />
-            <SmallIconImg rune={mainRune!.icon} />
+            <SmallIconImg mainRune={mainRune?.icon} />
+            <SmallIconImg subRune={subRune?.icon} />
           </S_Div>
           <S_Div>
             {Array.from({ length: 6 }, (_, idx) => idx).map(itemIndex => {
