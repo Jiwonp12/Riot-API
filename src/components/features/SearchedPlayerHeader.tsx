@@ -15,12 +15,9 @@ function SearchedPlayerHeader({ data }: { data: Player }) {
           alt="summoner icon"
         />
       </figure>
-      <div>
+      <div className="flex_col">
         <strong>{data.name}</strong>
-        <span>
-          last play:
-          {days}
-        </span>
+        <p>last play : {days}</p>
       </div>
     </S_Section>
   );
@@ -30,10 +27,14 @@ export default SearchedPlayerHeader;
 
 const S_Section = styled.section`
   display: flex;
+  padding: 27px;
+  background: var(--color-white);
+  border: 1px solid var(--color-white3);
 
   figure {
     position: relative;
   }
+
   figure > span {
     position: absolute;
     padding: 4px;
@@ -44,6 +45,7 @@ const S_Section = styled.section`
     color: var(--color-white);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
   }
+
   figure > img {
     width: 200px;
     border-radius: 20px;
@@ -51,7 +53,14 @@ const S_Section = styled.section`
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
   }
 
-  strong {
-    font-size: 24px;
+  .flex_col {
+    display: flex;
+    flex-direction: column;
+    margin: 0 28px;
+
+    strong {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
   }
 `;

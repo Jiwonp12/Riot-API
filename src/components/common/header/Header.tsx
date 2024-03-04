@@ -22,4 +22,5 @@ const S_Header = styled.header`
   top: 0;
   position: sticky;
   padding: 12px;
+  z-index: 9999;
 `;
