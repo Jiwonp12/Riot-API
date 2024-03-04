@@ -12,6 +12,11 @@ html {
 :root {
   --color-bg: #f4ce14;
   --color-white: #f5f7f8;
-  --color-gray: #c3ac52;
+  --color-gray: #758592;
+  --color-bg2: #c3ac52;
   --color-dark: #1d1e20;
+  --color-blue1: #d3e0fc;
+  --color-blue2: #4171d6;
+  --color-red1: #ffd4db;
+  --color-red2: #d31a45;
 }

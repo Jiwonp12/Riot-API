@@ -33,7 +33,7 @@ const S_figure = styled.figure`
     color: var(--color-white);
   }
   img {
-    width: 80px;
+    width: 70px;
     border-radius: 50%;
   }
 `;
