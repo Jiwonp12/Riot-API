@@ -46,6 +46,8 @@ function SmallIconImg({ item, spell, mainRune, subRune }: SmallIconImgType) {
         />
       </S_figure>
     );
+  } else {
+    return <S_Empty></S_Empty>;
   }
 }
 export default SmallIconImg;
@@ -54,6 +56,8 @@ const S_figure = styled.figure`
   width: 32px;
   height: 32px;
   border: 1px solid var(--color-white);
+  margin: 0 1px 0;
+  border-radius: 4px;
 
   img {
     object-fit: contain;
@@ -61,4 +65,13 @@ const S_figure = styled.figure`
     height: 100%;
     border-radius: 4px;
   }
+`;
+
+const S_Empty = styled.figure`
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-white);
+  margin: 0 1px 0;
+  border-radius: 4px;
+  background: var(--color-gray);
 `;

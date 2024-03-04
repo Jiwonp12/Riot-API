@@ -31,7 +31,7 @@ const S_Ul = styled.ul`
 
   li {
     font-size: 20px;
-    color: var(--color-gray);
+    color: var(--color-bg2);
     cursor: pointer;
     transition: color 0.1s ease;
 
