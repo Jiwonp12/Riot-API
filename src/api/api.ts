@@ -24,6 +24,13 @@ export const GetMatchesInfo = (matchId: string) =>
     )
     .then(res => res.data);
 
+export const GetTier = (id: string) =>
+  axios
+    .get(
+      `https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}?api_key=${key}`
+    )
+    .then(res => res.data);
+
 export const GetSpellData = () =>
   axios
     .get(

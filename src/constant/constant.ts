@@ -20,3 +20,16 @@ export const runeTypes = [
   { key: "Inspiration", value: "7203_Inspiration" },
   { key: "Resolve", value: "7204_Resolve" },
 ];
+
+export const Tiers = [
+  { key: "IRON", src: "src/assets/IRON.png" },
+  { key: "BRONZE", src: "src/assets/Bronze.png" },
+  { key: "SILVER", src: "src/assets/SILVER.png" },
+  { key: "GOLD", src: "src/assets/GOLD.png" },
+  { key: "PLATINUM", src: "src/assets/PLATINUM.png" },
+  { key: "EMERALD", src: "src/assets/EMERALD.png" },
+  { key: "DIAMOND", src: "src/assets/DIAMOND.png" },
+  { key: "MASTER", src: "src/assets/MASTER.png" },
+  { key: "GRANDMASTER", src: "src/assets/GRANDMASTER.png" },
+  { key: "CHALLENGER", src: "src/assets/CHALLENGER.png" },
+];
