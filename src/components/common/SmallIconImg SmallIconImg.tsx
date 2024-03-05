@@ -2,7 +2,13 @@ import styled from "styled-components";
 import { gameVersion, runeTypes } from "../../constant/constant";
 import { SmallIconImgType } from "../../types/types";
 
-function SmallIconImg({ item, spell, mainRune, subRune }: SmallIconImgType) {
+function SmallIconImg({
+  item,
+  spell,
+  mainRune,
+  subRune,
+  champion,
+}: SmallIconImgType) {
   if (item) {
     return (
       <S_figure>
@@ -43,6 +49,15 @@ function SmallIconImg({ item, spell, mainRune, subRune }: SmallIconImgType) {
         <img
           src={`https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${subRuneValue}.png`}
           alt={`${subRuneValue} icon`}
+        />
+      </S_figure>
+    );
+  } else if (champion) {
+    return (
+      <S_figure>
+        <img
+          src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/champion/${champion}.png`}
+          alt={`${champion} icon`}
         />
       </S_figure>
     );

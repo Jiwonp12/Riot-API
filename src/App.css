@@ -5,10 +5,6 @@
   margin: 0;
 }
 
-html {
-  width: 100vw;
-}
-
 :root {
   --color-bg: #f4ce14;
   --color-white: #fcfeff;

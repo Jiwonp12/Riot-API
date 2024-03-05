@@ -21,6 +21,7 @@ export type SmallIconImgType = {
   spell?: Spell;
   mainRune?: string;
   subRune?: string;
+  champion?: string;
 };
 
 export type Spell = {
@@ -86,4 +87,10 @@ export type RankType = {
   tier: string;
   veteran: boolean;
   wins: number;
+};
+
+export type AllPlayersType = {
+  championName: string;
+  riotIdGameName: string;
+  goldEarned: number;
 };

@@ -20,7 +20,7 @@ function KillTypesTag({
       </S_Tag>
     );
   } else {
-    return <S_Empty></S_Empty>;
+    return <></>;
   }
 }
 
@@ -36,14 +36,5 @@ const S_Tag = styled.div`
   border-radius: 24px;
   font-size: 14px;
   height: 28px;
-  margin-left: 4px;
-`;
-
-const S_Empty = styled.div`
-  display: flex;
-  align-self: center;
-  padding: 0 12px;
-  font-size: 14px;
-  height: 28px;
-  margin-left: 4px;
+  margin-left: 8px;
 `;
