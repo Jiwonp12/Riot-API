@@ -27,9 +27,9 @@ const S_figure = styled.figure`
     position: absolute;
     padding: 4px;
     background: var(--color-dark);
-    border-radius: 4px;
-    bottom: 10px;
-    right: 8px;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
     color: var(--color-white);
   }
   img {

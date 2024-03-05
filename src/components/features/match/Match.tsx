@@ -12,6 +12,7 @@ import {
   calculateMinutes,
 } from "../../../utils/calculatePlayTime";
 import KillTypesTag from "../../common/KillTypesTag";
+import MatchedAllPlayers from "./MatchedAllPlayers";
 
 function Match({ matchId }: { matchId: string }) {
   const { isLoading, isSuccess, data, error } = useGetMatchesInfoQuery(matchId);
@@ -92,6 +93,7 @@ function Match({ matchId }: { matchId: string }) {
             </div>
           </div>
         </S_DivMid>
+        <MatchedAllPlayers allPlayers={data.info.participants} />
       </S_Article>
     );
   }
@@ -101,6 +103,7 @@ export default Match;
 
 const S_Article = styled.article`
   display: flex;
+  justify-content: space-between;
   margin: 20px 0;
   border-radius: 8px;
   padding: 12px;
@@ -142,16 +145,15 @@ const S_DivLeft = styled.div`
 
 const S_DivMid = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 28px;
+  padding: 0 48px;
 
   .mid_flex_col {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 
     .item {
-      width: 280px;
+      width: 295px;
       padding-top: 8px;
     }
   }
@@ -162,6 +164,7 @@ const S_DivMid = styled.div`
 
     .spell {
       padding: 0 12px;
+      margin-left: 12px;
     }
   }
 
@@ -173,8 +176,9 @@ const S_DivMid = styled.div`
 
     .mid_text {
       color: var(--color-dark);
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
+      margin-left: 12px;
     }
   }
 `;

@@ -13,7 +13,7 @@ export const GetSummoner = (id: string) =>
 export const GetMatches = (puuid: string) =>
   axios
     .get(
-      `https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=2&api_key=${key}`
+      `https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=10&api_key=${key}`
     )
     .then(res => res.data);
 
