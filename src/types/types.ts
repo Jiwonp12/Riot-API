@@ -17,11 +17,29 @@ export type Teams = {
 };
 
 export type SmallIconImgType = {
-  item?: number | undefined;
+  item?: ItemType | undefined;
   spell?: Spell;
   mainRune?: string;
   subRune?: string;
   champion?: string;
+};
+
+export type ItemType = {
+  name: string;
+  description: string;
+  plaintext: string;
+  gold: {
+    base: number;
+    total: number;
+  };
+  image: {
+    full: string;
+  };
+  stats: {
+    FlatHPPoolMod: number;
+    FlatPhysicalDamageMod: number;
+  };
+  tags: string[];
 };
 
 export type Spell = {

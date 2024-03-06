@@ -21,3 +21,9 @@ export const summonerAtom = atom({
   default: "",
   effects_UNSTABLE: [persistAtom],
 });
+
+export const itemAtom = atom({
+  key: "itemAtom",
+  default: [],
+  effects_UNSTABLE: [persistAtom],
+});
