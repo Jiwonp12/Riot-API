@@ -17,7 +17,7 @@ export const runeTypes = [
   { key: "Domination", value: "7200_Domination" },
   { key: "Precision", value: "7201_Precision" },
   { key: "Sorcery", value: "7202_Sorcery" },
-  { key: "Inspiration", value: "7203_Inspiration" },
+  { key: "Inspiration", value: "7203_Whimsy" },
   { key: "Resolve", value: "7204_Resolve" },
 ];
 

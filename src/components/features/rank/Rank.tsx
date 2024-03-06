@@ -5,7 +5,7 @@ import RankGame from "./RankGame";
 function Rank({ id }: { id: string }) {
   const { isLoading, isSuccess, data, error } = useGetTier(id);
 
-  // if (isLoading) console.log("loading");
+  //   if (isLoading) console.log("loading");
 
   // if (error) console.log("error");
 

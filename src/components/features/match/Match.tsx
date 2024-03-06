@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import useGetMatchesInfoQuery from "../../../queries/useGetMatchesInfo";
-import { runeAtom, spellAtom, summonerAtom } from "../../../atoms/atom";
+import {
+  itemAtom,
+  runeAtom,
+  spellAtom,
+  summonerAtom,
+} from "../../../atoms/atom";
 import { Participants } from "../../../types/types";
 import ChampionImg from "../../common/ChampionImg";
 import SmallIconImg from "../../common/SmallIconImg SmallIconImg";
@@ -19,6 +24,7 @@ function Match({ matchId }: { matchId: string }) {
   const summoner = useRecoilValue(summonerAtom);
   const spells = useRecoilValue(spellAtom);
   const runes = useRecoilValue(runeAtom);
+  const items = useRecoilValue(itemAtom);
 
   if (isSuccess) {
     const days = calculateDays(data.info.gameEndTimestamp);
@@ -77,7 +83,10 @@ function Match({ matchId }: { matchId: string }) {
               </div>
               <div className="mid_text_box">
                 <p className="mid_text">{kda}</p>
-                <p>{`평점 ${player.challenges.kda.toFixed(2)}`}</p>
+                <p>
+                  {player.challenges &&
+                    `평점 ${player.challenges.kda.toFixed(2)}`}
+                </p>
               </div>
             </div>
             <div className="flex item">
@@ -85,7 +94,7 @@ function Match({ matchId }: { matchId: string }) {
                 return (
                   <SmallIconImg
                     key={`item${itemIndex}`}
-                    item={player[`item${itemIndex}`]}
+                    item={items[0][player[`item${itemIndex}`]]}
                   />
                 );
               })}

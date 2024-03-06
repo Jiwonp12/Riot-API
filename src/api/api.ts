@@ -44,3 +44,10 @@ export const GetRuneData = () =>
       `https://ddragon.leagueoflegends.com/cdn/${gameVersion}/data/ko_KR/runesReforged.json`
     )
     .then(res => res.data);
+
+export const GetItemData = () =>
+  axios
+    .get(
+      `https://ddragon.leagueoflegends.com/cdn/${gameVersion}/data/ko_KR/item.json`
+    )
+    .then(res => res.data);
