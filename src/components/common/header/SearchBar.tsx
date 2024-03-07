@@ -3,12 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
-import { summonerAtom } from "../../../atoms/atom";
 
 function SearchBar() {
   const [summonerInput, setSummonerInput] = useState("");
-  const setRecoilState = useSetRecoilState(summonerAtom);
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,18 +14,16 @@ function SearchBar() {
 
   const handleClick = () => {
     if (summonerInput.length) {
-      setRecoilState(summonerInput);
       setSummonerInput("");
-      navigate("/search");
+      navigate(`/search/summoners/${summonerInput}`);
     }
   };
 
   const handleKeyUp = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       if (summonerInput.length) {
-        setRecoilState(summonerInput);
         setSummonerInput("");
-        navigate("/search");
+        navigate(`/search/summoners/${summonerInput}`);
       }
     }
   };

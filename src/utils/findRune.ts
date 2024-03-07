@@ -1,4 +1,4 @@
-import { Rune } from "../types/types";
+import { Rune, MainRune } from "../types/types";
 
 const findRunePage = (playerRune: number, runes: Rune[]) =>
   runes.find(page =>
@@ -12,7 +12,12 @@ const findRunes = (playerMainRune: number, runes: Rune[]) => {
   );
 };
 
-export const findRune = (playerMainRune: number, runes: Rune[]) => {
+export const findRune = (
+  playerMainRune: number,
+  runes: Rune[]
+): MainRune | undefined => {
   const mainRunes = findRunes(playerMainRune, runes);
-  return mainRunes?.runes.find(picked => picked.id === playerMainRune);
+  return mainRunes?.runes.find(picked => picked.id === playerMainRune) as
+    | MainRune
+    | undefined;
 };

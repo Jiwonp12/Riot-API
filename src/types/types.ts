@@ -19,7 +19,7 @@ export type Teams = {
 export type SmallIconImgType = {
   item?: ItemType | undefined;
   spell?: Spell;
-  mainRune?: string;
+  mainRune?: MainRune | undefined;
   subRune?: string;
   champion?: string;
 };
@@ -89,6 +89,15 @@ export type RuneSlots = {
   longDesc: string;
   shortDesc: string;
   runes: Rune[];
+};
+
+export type MainRune = {
+  icon: string;
+  id: number;
+  key: string;
+  name: string;
+  longDesc: string;
+  shortDesc: string;
 };
 
 export type RankType = {
