@@ -1,13 +1,12 @@
-import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { summonerAtom } from "../atoms/atom";
+import { useParams } from "react-router-dom";
 import useGetSummonerQuery from "../queries/useGetSummonerQuery";
 import Matches from "../components/features/Matches";
 import SearchedPlayerHeader from "../components/features/SearchedPlayerHeader";
 import Rank from "../components/features/rank/Rank";
 
 function Search() {
-  const summoner = useRecoilValue(summonerAtom);
+  const { summoner = "" } = useParams<{ summoner?: string }>();
   const { isLoading, isSuccess, data, error } = useGetSummonerQuery(summoner);
 
   // if (isLoading) console.log("loading");

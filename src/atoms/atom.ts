@@ -16,12 +16,6 @@ export const runeAtom = atom<Rune[]>({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const summonerAtom = atom({
-  key: "summonerAtom",
-  default: "",
-  effects_UNSTABLE: [persistAtom],
-});
-
 export const itemAtom = atom({
   key: "itemAtom",
   default: [],

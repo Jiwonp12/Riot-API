@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "search",
+        path: "search/summoners/:summoner",
         element: (
           <Suspense>
             <Search />

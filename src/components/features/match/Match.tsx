@@ -1,12 +1,7 @@
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import useGetMatchesInfoQuery from "../../../queries/useGetMatchesInfo";
-import {
-  itemAtom,
-  runeAtom,
-  spellAtom,
-  summonerAtom,
-} from "../../../atoms/atom";
+import { itemAtom, runeAtom, spellAtom } from "../../../atoms/atom";
 import { Participants } from "../../../types/types";
 import ChampionImg from "../../common/ChampionImg";
 import SmallIconImg from "../../common/SmallIconImg";
@@ -18,10 +13,11 @@ import {
 } from "../../../utils/calculatePlayTime";
 import KillTypesTag from "../../common/KillTypesTag";
 import MatchedAllPlayers from "./MatchedAllPlayers";
+import { useParams } from "react-router-dom";
 
 function Match({ matchId }: { matchId: string }) {
   const { isLoading, isSuccess, data, error } = useGetMatchesInfoQuery(matchId);
-  const summoner = useRecoilValue(summonerAtom);
+  const { summoner = "" } = useParams<{ summoner?: string }>();
   const spells = useRecoilValue(spellAtom);
   const runes = useRecoilValue(runeAtom);
   const items = useRecoilValue(itemAtom);
