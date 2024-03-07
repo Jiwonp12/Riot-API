@@ -9,7 +9,7 @@ import {
 } from "../../../atoms/atom";
 import { Participants } from "../../../types/types";
 import ChampionImg from "../../common/ChampionImg";
-import SmallIconImg from "../../common/SmallIconImg SmallIconImg";
+import SmallIconImg from "../../common/SmallIconImg";
 import { killTypes } from "../../../constant/constant";
 import { findRune } from "../../../utils/findRune";
 import {
@@ -77,7 +77,7 @@ function Match({ matchId }: { matchId: string }) {
                   <SmallIconImg spell={spell2} />
                 </div>
                 <div>
-                  <SmallIconImg mainRune={mainRune?.icon} />
+                  <SmallIconImg mainRune={mainRune} />
                   <SmallIconImg subRune={subRune?.icon} />
                 </div>
               </div>

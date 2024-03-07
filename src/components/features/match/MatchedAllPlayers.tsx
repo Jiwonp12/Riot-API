@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { AllPlayersType } from "../../../types/types";
-import SmallIconImg from "../../common/SmallIconImg SmallIconImg";
+import SmallIconImg from "../../common/SmallIconImg";
 
 function MatchedAllPlayers({ allPlayers }: { allPlayers: AllPlayersType[] }) {
   const blueTeam = allPlayers.slice(0, 5);
@@ -13,11 +13,11 @@ function MatchedAllPlayers({ allPlayers }: { allPlayers: AllPlayersType[] }) {
     <S_Div>
       <div className="team">
         {blueTeam.map((player: AllPlayersType) => (
-          <div className="img_with_name">
-            <SmallIconImg
-              champion={player.championName}
-              key={`${player.championName}+${player.goldEarned}`}
-            />
+          <div
+            className="img_with_name"
+            key={`${player.championName}+${player.goldEarned}`}
+          >
+            <SmallIconImg champion={player.championName} />
             <div className="name">
               <p>{fixName(player.riotIdGameName)}</p>
             </div>
@@ -26,11 +26,11 @@ function MatchedAllPlayers({ allPlayers }: { allPlayers: AllPlayersType[] }) {
       </div>
       <div className="team">
         {redTeam.map((player: AllPlayersType) => (
-          <div className="img_with_name">
-            <SmallIconImg
-              champion={player.championName}
-              key={`${player.championName}+${player.goldEarned}`}
-            />
+          <div
+            className="img_with_name"
+            key={`${player.championName}+${player.goldEarned}`}
+          >
+            <SmallIconImg champion={player.championName} />
             <div className="name">
               <p>{fixName(player.riotIdGameName)}</p>
             </div>
