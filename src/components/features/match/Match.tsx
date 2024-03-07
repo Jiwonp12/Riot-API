@@ -16,7 +16,7 @@ import MatchedAllPlayers from "./MatchedAllPlayers";
 import { useParams } from "react-router-dom";
 
 function Match({ matchId }: { matchId: string }) {
-  const { isLoading, isSuccess, data, error } = useGetMatchesInfoQuery(matchId);
+  const { isSuccess, data } = useGetMatchesInfoQuery(matchId);
   const { summoner = "" } = useParams<{ summoner?: string }>();
   const spells = useRecoilValue(spellAtom);
   const runes = useRecoilValue(runeAtom);

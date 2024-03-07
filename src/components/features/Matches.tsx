@@ -3,7 +3,7 @@ import useGetMatchesQuery from "../../queries/useGetMatches";
 import Match from "./match/Match";
 
 function Matches({ puuid }: { puuid: string }) {
-  const { isLoading, isSuccess, data, error } = useGetMatchesQuery(puuid);
+  const { isSuccess, data } = useGetMatchesQuery(puuid);
 
   if (isSuccess) {
     return (

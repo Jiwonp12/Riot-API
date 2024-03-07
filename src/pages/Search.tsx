@@ -6,24 +6,22 @@ import SearchedPlayerHeader from "../components/features/SearchedPlayerHeader";
 import Rank from "../components/features/rank/Rank";
 
 function Search() {
-  const { summoner = "" } = useParams<{ summoner?: string }>();
-  const { isLoading, isSuccess, data, error } = useGetSummonerQuery(summoner);
+  const { summoner = "" } = useParams<{ summoner: string }>();
+  const { isLoading, data, error } = useGetSummonerQuery(summoner);
 
-  // if (isLoading) console.log("loading");
+  if (isLoading) return "Loading...";
 
-  // if (error) console.log("error");
+  if (error) return <S_Main>찾을수없음</S_Main>;
 
-  if (isSuccess) {
-    return (
-      <S_Main>
-        <SearchedPlayerHeader data={data} />
-        <div className="content">
-          <Rank id={data.id} />
-          <Matches puuid={data.puuid} />
-        </div>
-      </S_Main>
-    );
-  }
+  return (
+    <S_Main>
+      <SearchedPlayerHeader data={data} />
+      <div className="content">
+        <Rank id={data.id} />
+        <Matches puuid={data.puuid} />
+      </div>
+    </S_Main>
+  );
 }
 
 export default Search;
