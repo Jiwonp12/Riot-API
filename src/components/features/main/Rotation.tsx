@@ -12,9 +12,9 @@ function Rotation() {
   if (isLoading) console.log("load");
 
   if (isSuccess) {
-    const freeChamps = findRotation(champions[0].data, data.freeChampionIds);
+    const freeChamps = findRotation(champions[0], data.freeChampionIds);
     const freeChampsForNew = findRotation(
-      champions[0].data,
+      champions[0],
       data.freeChampionIdsForNewPlayers
     );
 
