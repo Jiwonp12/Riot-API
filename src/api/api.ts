@@ -51,3 +51,17 @@ export const GetItemData = () =>
       `https://ddragon.leagueoflegends.com/cdn/${gameVersion}/data/ko_KR/item.json`
     )
     .then(res => res.data);
+
+export const GetChampionData = () =>
+  axios
+    .get(
+      `https://ddragon.leagueoflegends.com/cdn/${gameVersion}/data/ko_KR/champion.json`
+    )
+    .then(res => res.data);
+
+export const GetChampionRotation = () =>
+  axios
+    .get(
+      `    https://kr.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=${key}`
+    )
+    .then(res => res.data);

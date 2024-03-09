@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { GetRuneData } from "./../api/api";
+import { GetRuneData } from "../../api/api";
 
 const useGetRuneData = () => {
   return useQuery({

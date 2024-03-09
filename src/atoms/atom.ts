@@ -21,3 +21,9 @@ export const itemAtom = atom({
   default: [],
   effects_UNSTABLE: [persistAtom],
 });
+
+export const championAtom = atom({
+  key: "championAtom",
+  default: [],
+  effects_UNSTABLE: [persistAtom],
+});
