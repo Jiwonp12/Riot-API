@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import useGetMatchesInfoQuery from "../../../queries/useGetMatchesInfo";
-import { itemAtom, runeAtom, spellAtom } from "../../../atoms/atom";
+import {
+  championAtom,
+  itemAtom,
+  runeAtom,
+  spellAtom,
+} from "../../../atoms/atom";
 import { Participants } from "../../../types/types";
 import ChampionImg from "../../common/ChampionImg";
 import SmallIconImg from "../../common/SmallIconImg";
@@ -14,6 +19,7 @@ import {
 import KillTypesTag from "../../common/KillTypesTag";
 import MatchedAllPlayers from "./MatchedAllPlayers";
 import { useParams } from "react-router-dom";
+import { findChampion } from "../../../utils/findChampion";
 
 function Match({ matchId }: { matchId: string }) {
   const { isSuccess, data } = useGetMatchesInfoQuery(matchId);
@@ -21,6 +27,7 @@ function Match({ matchId }: { matchId: string }) {
   const spells = useRecoilValue(spellAtom);
   const runes = useRecoilValue(runeAtom);
   const items = useRecoilValue(itemAtom);
+  const champions = useRecoilValue(championAtom);
 
   if (isSuccess) {
     const days = calculateDays(data.info.gameEndTimestamp);
@@ -30,6 +37,7 @@ function Match({ matchId }: { matchId: string }) {
       (key: Participants) =>
         key.summonerName.toLowerCase() === summoner.toLowerCase()
     );
+    const champion = findChampion(champions[0].data, player.championId);
     const kda = `${player.kills} / ${player.deaths} / ${player.assists}`;
     const playerKillType = killTypes.find(type => player[type] > 0);
     const [spell1, spell2] = [player.summoner1Id, player.summoner2Id].map(
@@ -64,7 +72,7 @@ function Match({ matchId }: { matchId: string }) {
           <div className="mid_flex_col">
             <div className="mid_flex">
               <ChampionImg
-                champion={player.championName}
+                champion={champion[0]}
                 champLevel={player.champLevel}
               />
               <div className="flex spell">

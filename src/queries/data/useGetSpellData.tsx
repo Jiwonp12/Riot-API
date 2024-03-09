@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { GetSpellData } from "./../api/api";
+import { GetSpellData } from "../../api/api";
 
 const useGetSpellData = () => {
   return useQuery({

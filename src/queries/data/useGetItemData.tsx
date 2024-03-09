@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { GetItemData } from "./../api/api";
+import { GetItemData } from "../../api/api";
 
 const useGetItemData = () => {
   return useQuery({
