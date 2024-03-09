@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import useGetChampionRotation from "../../../queries/useGetChampionRotation";
 import { championAtom } from "../../../atoms/atom";
-import { findRotation } from "../../../utils/findChampion";
+import { findRotation } from "../../../utils/findChampions";
 import ChampionImg from "../../common/ChampionImg";
 
 function Rotation() {
