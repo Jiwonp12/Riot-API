@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import useGetChampionRotation from "../../../queries/useGetChampionRotation";
 import { championAtom } from "../../../atoms/atom";
-import { findRotation } from "../../../utils/findChampion";
+import { findRotation } from "../../../utils/findChampions";
 import ChampionImg from "../../common/ChampionImg";
 
 function Rotation() {
@@ -12,9 +12,9 @@ function Rotation() {
   if (isLoading) console.log("load");
 
   if (isSuccess) {
-    const freeChamps = findRotation(champions[0].data, data.freeChampionIds);
+    const freeChamps = findRotation(champions[0], data.freeChampionIds);
     const freeChampsForNew = findRotation(
-      champions[0].data,
+      champions[0],
       data.freeChampionIdsForNewPlayers
     );
 

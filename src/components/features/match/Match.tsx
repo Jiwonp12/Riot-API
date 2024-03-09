@@ -19,7 +19,7 @@ import {
 import KillTypesTag from "../../common/KillTypesTag";
 import MatchedAllPlayers from "./MatchedAllPlayers";
 import { useParams } from "react-router-dom";
-import { findChampion } from "../../../utils/findChampion";
+import { findChampion } from "../../../utils/findChampions";
 
 function Match({ matchId }: { matchId: string }) {
   const { isSuccess, data } = useGetMatchesInfoQuery(matchId);
