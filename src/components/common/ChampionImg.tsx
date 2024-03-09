@@ -15,7 +15,7 @@ function ChampionImg({
       <S_figure>
         <img
           src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/champion/${champion.id}.png`}
-          alt={`${champion} icon`}
+          alt={`${champion.name} icon`}
           data-tooltip-id={champion.id}
           data-tooltip-place="top"
           data-tooltip-variant="dark"
@@ -34,7 +34,7 @@ function ChampionImg({
         <span>{champLevel}</span>
         <img
           src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/champion/${champion.id}.png`}
-          alt={`${champion} icon`}
+          alt={`${champion.name} icon`}
           data-tooltip-id={champion.id}
           data-tooltip-place="top"
           data-tooltip-variant="dark"
