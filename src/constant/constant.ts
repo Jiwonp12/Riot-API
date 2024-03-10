@@ -1,5 +1,3 @@
-const img = import.meta.env.VITE_IMAGE_URL;
-
 export const gameVersion = "14.5.1";
 
 export const navLists = [
@@ -24,16 +22,16 @@ export const runeTypes = [
 ];
 
 export const tiers = [
-  { key: "IRON", src: `${img}/src/assets/IRON.png` },
-  { key: "BRONZE", src: `${img}/src/assets/Bronze.png` },
-  { key: "SILVER", src: `${img}/src/assets/SILVER.png` },
-  { key: "GOLD", src: `${img}/src/assets/GOLD.png` },
-  { key: "PLATINUM", src: `${img}/src/assets/PLATINUM.png` },
-  { key: "EMERALD", src: `${img}/src/assets/EMERALD.png` },
-  { key: "DIAMOND", src: `${img}/src/assets/DIAMOND.png` },
-  { key: "MASTER", src: `${img}/src/assets/MASTER.png` },
-  { key: "GRANDMASTER", src: `${img}/src/assets/GRANDMASTER.png` },
-  { key: "CHALLENGER", src: `${img}/src/assets/CHALLENGER.png` },
+  { key: "IRON", src: `/public/IRON.png` },
+  { key: "BRONZE", src: `/public/Bronze.png` },
+  { key: "SILVER", src: `/public/SILVER.png` },
+  { key: "GOLD", src: `/public/GOLD.png` },
+  { key: "PLATINUM", src: `/public/PLATINUM.png` },
+  { key: "EMERALD", src: `/public/EMERALD.png` },
+  { key: "DIAMOND", src: `/public/DIAMOND.png` },
+  { key: "MASTER", src: `/public/MASTER.png` },
+  { key: "GRANDMASTER", src: `/public/GRANDMASTER.png` },
+  { key: "CHALLENGER", src: `/public/CHALLENGER.png` },
 ];
 
 export const rotationHeaderText = [
