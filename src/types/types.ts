@@ -153,3 +153,7 @@ export type ChampionType = {
   tags: string[];
   title: string;
 };
+
+export type SwiperType = {
+  activeIndex: number;
+};

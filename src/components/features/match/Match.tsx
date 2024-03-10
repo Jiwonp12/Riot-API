@@ -37,7 +37,7 @@ function Match({ matchId }: { matchId: string }) {
       (key: Participants) =>
         key.summonerName.toLowerCase() === summoner.toLowerCase()
     );
-    const champion = findChampion(champions[0].data, player.championId);
+    const champion = findChampion(champions[0], player.championId);
     const kda = `${player.kills} / ${player.deaths} / ${player.assists}`;
     const playerKillType = killTypes.find(type => player[type] > 0);
     const [spell1, spell2] = [player.summoner1Id, player.summoner2Id].map(

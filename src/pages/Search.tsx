@@ -27,10 +27,8 @@ function Search() {
 export default Search;
 
 const S_Main = styled.main`
-  background: var(--color-white2);
-
   .content {
     display: flex;
-    margin: 0 28px;
+    margin: 0 100px;
   }
 `;

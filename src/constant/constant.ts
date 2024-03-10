@@ -1,4 +1,4 @@
-export const gameVersion = "14.4.1";
+export const gameVersion = "14.5.1";
 
 export const navLists = [
   { text: "Home", path: "/" },
@@ -21,7 +21,7 @@ export const runeTypes = [
   { key: "Resolve", value: "7204_Resolve" },
 ];
 
-export const Tiers = [
+export const tiers = [
   { key: "IRON", src: "../../src/assets/IRON.png" },
   { key: "BRONZE", src: "../../src/assets/Bronze.png" },
   { key: "SILVER", src: "../../src/assets/SILVER.png" },
@@ -32,4 +32,9 @@ export const Tiers = [
   { key: "MASTER", src: "../../src/assets/MASTER.png" },
   { key: "GRANDMASTER", src: "../../src/assets/GRANDMASTER.png" },
   { key: "CHALLENGER", src: "../../src/assets/CHALLENGER.png" },
+];
+
+export const rotationHeaderText = [
+  "이번 주 챔피언 로테이션",
+  "이번 주 챔피언 로테이션 (신규 플레이어)",
 ];
