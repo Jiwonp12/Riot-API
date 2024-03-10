@@ -1,13 +1,13 @@
-import IRON from "@/assets/IRON.png";
-import BRONZE from "@/assets/BRONZE.png";
-import SILVER from "@/assets/SILVER.png";
-import GOLD from "@/assets/GOLD.png";
-import PLATINUM from "@/assets/PLATINUM.png";
-import EMERALD from "@/assets/EMERALD.png";
-import DIAMOND from "@/assets/DIAMOND.png";
-import MASTER from "@/assets/MASTER.png";
-import GRANDMASTER from "@/assets/GRANDMASTER.png";
-import CHALLENGER from "@/assets/CHALLENGER.png";
+import IRON from "@/assets/Iron.png.png";
+import BRONZE from "@/assets/Bronze.png";
+import SILVER from "@/assets/Silver.png";
+import GOLD from "@/assets/Gold.png";
+import PLATINUM from "@/assets/Platinum.png";
+import EMERALD from "@/assets/Emerald.png";
+import DIAMOND from "@/assets/Diamond.png";
+import MASTER from "@/assets/Master.png";
+import GRANDMASTER from "@/assets/Grandmaster.png";
+import CHALLENGER from "@/assets/Challenger.png";
 
 export const gameVersion = "14.5.1";
 
