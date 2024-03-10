@@ -1,4 +1,4 @@
-import IRON from "@/assets/Iron.png.png";
+import IRON from "@/assets/Iron.png";
 import BRONZE from "@/assets/Bronze.png";
 import SILVER from "@/assets/Silver.png";
 import GOLD from "@/assets/Gold.png";
