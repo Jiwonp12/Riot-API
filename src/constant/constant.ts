@@ -1,3 +1,14 @@
+import IRON from "@/assets/IRON.png";
+import BRONZE from "@/assets/BRONZE.png";
+import SILVER from "@/assets/SILVER.png";
+import GOLD from "@/assets/GOLD.png";
+import PLATINUM from "@/assets/PLATINUM.png";
+import EMERALD from "@/assets/EMERALD.png";
+import DIAMOND from "@/assets/DIAMOND.png";
+import MASTER from "@/assets/MASTER.png";
+import GRANDMASTER from "@/assets/GRANDMASTER.png";
+import CHALLENGER from "@/assets/CHALLENGER.png";
+
 export const gameVersion = "14.5.1";
 
 export const navLists = [
@@ -22,16 +33,16 @@ export const runeTypes = [
 ];
 
 export const tiers = [
-  { key: "IRON", src: `/public/IRON.png` },
-  { key: "BRONZE", src: `/public/Bronze.png` },
-  { key: "SILVER", src: `/public/SILVER.png` },
-  { key: "GOLD", src: `/public/GOLD.png` },
-  { key: "PLATINUM", src: `/public/PLATINUM.png` },
-  { key: "EMERALD", src: `/public/EMERALD.png` },
-  { key: "DIAMOND", src: `/public/DIAMOND.png` },
-  { key: "MASTER", src: `/public/MASTER.png` },
-  { key: "GRANDMASTER", src: `/public/GRANDMASTER.png` },
-  { key: "CHALLENGER", src: `/public/CHALLENGER.png` },
+  { key: "IRON", src: `${IRON}` },
+  { key: "BRONZE", src: `${BRONZE}` },
+  { key: "SILVER", src: `${SILVER}` },
+  { key: "GOLD", src: `${GOLD}` },
+  { key: "PLATINUM", src: `${PLATINUM}` },
+  { key: "EMERALD", src: `${EMERALD}` },
+  { key: "DIAMOND", src: `${DIAMOND}` },
+  { key: "MASTER", src: `${MASTER}` },
+  { key: "GRANDMASTER", src: `${GRANDMASTER}` },
+  { key: "CHALLENGER", src: `${CHALLENGER}` },
 ];
 
 export const rotationHeaderText = [
