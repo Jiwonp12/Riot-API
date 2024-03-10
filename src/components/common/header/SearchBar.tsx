@@ -4,7 +4,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function SearchBar() {
+function SearchBar({ location }: { location: string }) {
   const [summonerInput, setSummonerInput] = useState("");
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ function SearchBar() {
   };
 
   return (
-    <S_Label>
+    <S_Label className={location}>
       <input
         value={summonerInput}
         type="text"
@@ -45,26 +45,33 @@ function SearchBar() {
 export default SearchBar;
 
 const S_Label = styled.label`
-  margin: 12px 16px 0 16px;
+  width: ${({ className }) => (className === "/" ? "800px" : "1290px")};
+  height: ${({ className }) => (className === "/" ? "60px" : "40px")};
   display: flex;
-  align-items: center;
+  align-self: ${({ className }) => (className === "/" ? "center" : "")};
+  position: relative;
+  margin: 20px 14px 0;
 
   input {
+    width: 100%;
     padding: 4px 8px;
-    border-radius: 4px;
-    width: 600px;
-    height: 40px;
+    border-radius: ${({ className }) => (className === "/" ? "36px" : "4px")};
     background: var(--color-white);
     border: 1px solid var(--color-white);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
     font-size: 16px;
     position: relative;
+    text-align: ${({ className }) => (className === "/" ? "center" : "")};
 
     &::placeholder {
+      text-align: ${({ className }) => (className === "/" ? "center" : "")};
       color: var(--color-dark);
     }
     &:focus {
       outline: none;
+      &::placeholder {
+        color: transparent;
+      }
     }
   }
 
@@ -72,6 +79,9 @@ const S_Label = styled.label`
     font-size: 24px;
     cursor: pointer;
     position: absolute;
-    left: 590px;
+    right: ${({ className }) => (className === "/" ? "20px" : "8px")};
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-bg);
   }
 `;

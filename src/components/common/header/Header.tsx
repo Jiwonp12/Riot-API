@@ -1,14 +1,17 @@
 import styled from "styled-components";
 import SearchBar from "./SearchBar";
 import NavList from "./NavList";
+import { useLocation } from "react-router";
 
 function Header() {
+  const location = useLocation().pathname;
+
   return (
     <S_Header>
       <nav>
         <NavList />
       </nav>
-      <SearchBar />
+      <SearchBar location={location} />
     </S_Header>
   );
 }
@@ -19,8 +22,5 @@ const S_Header = styled.header`
   display: flex;
   flex-direction: column;
   background: var(--color-bg);
-  top: 0;
-  position: sticky;
-  padding: 12px;
-  z-index: 9999;
+  padding: 20px 86px;
 `;

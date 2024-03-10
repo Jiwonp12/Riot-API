@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Tiers } from "../../constant/constant";
+import { tiers } from "../../constant/constant";
 
 function TierImg({ tier }: { tier: string }) {
-  const [icon] = Tiers.filter(str => str.key === tier);
+  const [icon] = tiers.filter(str => str.key === tier);
 
   if (tier) {
     return (

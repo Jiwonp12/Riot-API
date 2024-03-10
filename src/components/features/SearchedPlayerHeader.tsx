@@ -27,7 +27,7 @@ export default SearchedPlayerHeader;
 
 const S_Section = styled.section`
   display: flex;
-  padding: 27px;
+  padding: 40px 99px;
   background: var(--color-white);
   border: 1px solid var(--color-white3);
 

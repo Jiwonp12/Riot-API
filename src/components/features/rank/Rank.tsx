@@ -6,7 +6,7 @@ function Rank({ id }: { id: string }) {
   const { isSuccess, data } = useGetTier(id);
 
   if (isSuccess) {
-    const [soloRank, freeRank] = data;
+    const [freeRank, soloRank] = data;
     return (
       <S_Aside>
         <RankGame type={soloRank} />

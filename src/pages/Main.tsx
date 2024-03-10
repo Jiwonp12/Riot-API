@@ -14,7 +14,7 @@ function Main() {
   const { isSuccess: itemIsSuccess, data: itemData } = useGetItemData();
   const { isSuccess: championIsSuccess, data: championData } =
     useGetChampionData();
-  const [spellState, setSpellState] = useRecoilState<Spell[]>(spellAtom);
+  const [spellState, setSpellState] = useRecoilState(spellAtom);
   const [runeState, setRuneState] = useRecoilState(runeAtom);
   const [itemState, setItemState] = useRecoilState(itemAtom);
   const [championState, setChampionState] = useRecoilState(championAtom);
@@ -54,5 +54,7 @@ export default Main;
 
 const S_Main = styled.main`
   display: flex;
-  background: var(--color-white2);
+  justify-content: center;
+  background: var(--color-bg);
+  padding: 20px 100px;
 `;
