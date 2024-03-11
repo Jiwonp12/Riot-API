@@ -8,6 +8,7 @@ const queryClient = new QueryClient();
 const Root = lazy(() => import("./pages/Root"));
 const Main = lazy(() => import("./pages/Main"));
 const Search = lazy(() => import("./pages/Search"));
+const Champions = lazy(() => import("./pages/Champions"));
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense>
             <Search />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/champions",
+        element: (
+          <Suspense>
+            <Champions />
           </Suspense>
         ),
       },

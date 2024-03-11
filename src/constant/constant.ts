@@ -12,9 +12,9 @@ import CHALLENGER from "@/assets/Challenger.png";
 export const gameVersion = "14.5.1";
 
 export const navLists = [
-  { text: "Home", path: "/" },
-  { text: "Home", path: "/" },
-  { text: "Home", path: "/" },
+  { text: "홈", path: "/" },
+  { text: "챔피언 정보", path: "/champions" },
+  { text: "랭킹", path: "/" },
 ];
 
 export const killTypes = [
