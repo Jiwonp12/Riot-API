@@ -22,5 +22,5 @@ const S_Header = styled.header`
   display: flex;
   flex-direction: column;
   background: var(--color-bg);
-  padding: 20px 86px;
+  padding: 40px 100px;
 `;

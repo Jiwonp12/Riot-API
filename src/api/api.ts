@@ -59,6 +59,13 @@ export const GetChampionData = () =>
     )
     .then(res => res.data);
 
+export const GetChampionDetailData = (champion?: string) =>
+  axios
+    .get(
+      `https://ddragon.leagueoflegends.com/cdn/${gameVersion}/data/ko_KR/champion/${champion}.json`
+    )
+    .then(res => res.data);
+
 export const GetChampionRotation = () =>
   axios
     .get(

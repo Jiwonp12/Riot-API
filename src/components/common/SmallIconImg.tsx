@@ -10,6 +10,8 @@ function SmallIconImg({
   mainRune,
   subRune,
   champion,
+  skill,
+  passive,
 }: SmallIconImgType) {
   if (item) {
     return (
@@ -114,18 +116,55 @@ function SmallIconImg({
         />
       </S_figure>
     );
+  } else if (skill) {
+    // console.log(skill);
+    return (
+      <>
+        <S_figure className="large">
+          <img
+            src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/spell/${skill.image.full}`}
+            alt={`${skill.image.full} icon`}
+            // data-tooltip-id={skill.id}
+            // data-tooltip-place="right"
+            // data-tooltip-variant="dark"
+            // data-tooltip-delay-show={100}
+          />
+        </S_figure>
+        {/* <S_Tooltip
+          id={skill.id}
+          style={{ width: "350px", borderRadius: "4px" }}
+          opacity={1}
+        >
+          <div>
+            <b className="mainRune_name">{skill.name}</b>
+            <p className="description">{skill.tooltip}</p>
+          </div>
+        </S_Tooltip> */}
+      </>
+    );
+  } else if (passive) {
+    return (
+      <S_figure className="large">
+        <img
+          src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/passive/${passive.image.full}`}
+          alt={`${passive} icon`}
+        />
+      </S_figure>
+    );
   } else {
-    return <S_Empty></S_Empty>;
+    return <S_Empty className={skill || passive ? "large" : ""}></S_Empty>;
   }
 }
 export default SmallIconImg;
 
 const S_figure = styled.figure`
-  width: 32px;
-  height: 32px;
+  width: ${({ className }) => (className === "large" ? "80px" : "32px")};
+  height: ${({ className }) => (className === "large" ? "80px" : "32px")};
   border: 1px solid var(--color-white);
   margin: 0 1px 0;
   border-radius: 4px;
+  box-shadow: ${({ className }) =>
+    className === "large" ? " 0 2px 2px 0 rgba(0, 0, 0, 0.19)" : ""};
 
   img {
     object-fit: contain;
@@ -136,8 +175,8 @@ const S_figure = styled.figure`
 `;
 
 const S_Empty = styled.figure`
-  width: 32px;
-  height: 32px;
+  width: ${({ className }) => (className === "large" ? "80px" : "32px")};
+  height: ${({ className }) => (className === "large" ? "80px" : "32px")};
   border: 1px solid var(--color-white);
   margin: 0 1px 0;
   border-radius: 4px;

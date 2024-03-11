@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Tooltip } from "react-tooltip";
 import { gameVersion } from "../../constant/constant";
 import { ChampionType } from "../../types/types";
+import { useNavigate } from "react-router";
 
 function ChampionImg({
   champion,
@@ -10,6 +11,12 @@ function ChampionImg({
   champion: ChampionType;
   champLevel: number;
 }) {
+  const navigate = useNavigate();
+
+  const handleClick = (champion: string) => {
+    navigate(`/champions/${champion}`);
+  };
+
   return (
     <S_figure className={champLevel === 0 ? "rotation" : "small_icon"}>
       {champLevel === 0 || <span>{champLevel}</span>}
@@ -21,6 +28,7 @@ function ChampionImg({
         data-tooltip-variant="dark"
         data-tooltip-delay-show={100}
         className={champLevel === 0 ? "rotation" : "small_icon"}
+        onClick={() => handleClick(champion.id)}
       />
       <S_Tooltip id={champion.id} style={{ borderRadius: "4px" }} opacity={1}>
         <div>

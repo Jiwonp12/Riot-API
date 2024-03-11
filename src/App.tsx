@@ -9,6 +9,7 @@ const Root = lazy(() => import("./pages/Root"));
 const Main = lazy(() => import("./pages/Main"));
 const Search = lazy(() => import("./pages/Search"));
 const Champions = lazy(() => import("./pages/Champions"));
+const ChampionDetail = lazy(() => import("./pages/ChampionDetail"));
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense>
             <Champions />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/champions/:champion",
+        element: (
+          <Suspense>
+            <ChampionDetail />
           </Suspense>
         ),
       },
