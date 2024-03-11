@@ -22,6 +22,8 @@ export type SmallIconImgType = {
   mainRune?: MainRune | undefined;
   subRune?: string;
   champion?: ChampionType[];
+  skill?: SkillSpell | undefined;
+  passive?: Passive | undefined;
 };
 
 export type ItemType = {
@@ -157,4 +159,78 @@ export type ChampionType = {
 
 export type SwiperType = {
   activeIndex: number;
+};
+
+export type ChampionDetailType = {
+  allytips: string[];
+  blurb: string;
+  enemytips: string[];
+  info: {
+    attack: number;
+    defense: number;
+    difficulty: number;
+    magic: number;
+  };
+  key: string;
+  lore: string;
+  name: string;
+  id: string;
+  partype: string;
+  passive: Passive;
+  skins: {
+    id: string;
+    name: string;
+    num: number;
+  }[];
+  spells: SkillSpell[];
+  stats: {
+    armor: number;
+    armorperlevel: number;
+    attackdamage: number;
+    attackdamageperlevel: number;
+    attackrange: number;
+    attackspeed: number;
+    attackspeedperlevel: number;
+    crit: number;
+    critperlevel: number;
+    hp: number;
+    hpperlevel: number;
+    hpregen: number;
+    hpregenperlevel: number;
+    movespeed: number;
+    mp: number;
+    mpperlevel: number;
+    mpregen: number;
+    mpregenperlevel: number;
+    spellblock: number;
+    spellblockperlevel: number;
+  };
+  tags: string[];
+  title: string;
+};
+
+export type SkillSpell = {
+  cooldown: number[];
+  cost: number[];
+  costType: string;
+  id: string;
+  image: {
+    full: string;
+    group: string;
+    sprite: string;
+  };
+  maxrank: number;
+  name: string;
+  resource: string;
+  tooltip: string;
+};
+
+export type Passive = {
+  description: string;
+  image: {
+    full: string;
+    group: string;
+    sprite: string;
+  };
+  name: string;
 };

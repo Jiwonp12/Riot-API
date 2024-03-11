@@ -34,6 +34,7 @@ const S_Ul = styled.ul`
     color: var(--color-bg2);
     cursor: pointer;
     transition: color 0.1s ease;
+    margin: 0 12px;
 
     &:hover {
       color: var(--color-white);
@@ -42,9 +43,8 @@ const S_Ul = styled.ul`
 
   a {
     display: block;
-    padding: 12px 0;
-    margin: 0 16px;
     transition: border-bottom 0.3s ease;
+    padding-bottom: 8px;
 
     &:hover {
       border-bottom: 4px solid white;
