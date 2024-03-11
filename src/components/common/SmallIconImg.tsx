@@ -45,7 +45,7 @@ function SmallIconImg({
       <>
         <S_figure>
           <img
-            src={`https://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/${spell.id}.png`}
+            src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/spell/${spell.id}.png`}
             alt={`${spell.id} icon`}
             data-tooltip-id={spell.name}
             data-tooltip-place="top"
@@ -109,8 +109,8 @@ function SmallIconImg({
     return (
       <S_figure>
         <img
-          src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/champion/${champion}.png`}
-          alt={`${champion} icon`}
+          src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/champion/${champion[0].id}.png`}
+          alt={`${champion[0].name} icon`}
         />
       </S_figure>
     );

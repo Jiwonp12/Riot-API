@@ -21,7 +21,7 @@ export type SmallIconImgType = {
   spell?: Spell;
   mainRune?: MainRune | undefined;
   subRune?: string;
-  champion?: string;
+  champion?: ChampionType[];
 };
 
 export type ItemType = {
@@ -120,6 +120,7 @@ export type AllPlayersType = {
   championName: string;
   riotIdGameName: string;
   goldEarned: number;
+  championId: number;
 };
 
 export type ChampionType = {

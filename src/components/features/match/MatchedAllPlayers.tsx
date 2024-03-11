@@ -1,8 +1,12 @@
 import styled from "styled-components";
+import { useRecoilValue } from "recoil";
 import { AllPlayersType } from "../../../types/types";
 import SmallIconImg from "../../common/SmallIconImg";
+import { findRotation } from "@/utils/findChampions";
+import { championAtom } from "@/atoms/atom";
 
 function MatchedAllPlayers({ allPlayers }: { allPlayers: AllPlayersType[] }) {
+  const champions = useRecoilValue(championAtom);
   const blueTeam = allPlayers.slice(0, 5);
   const redTeam = allPlayers.slice(5);
 
@@ -17,7 +21,9 @@ function MatchedAllPlayers({ allPlayers }: { allPlayers: AllPlayersType[] }) {
             className="img_with_name"
             key={`${player.championName}+${player.goldEarned}`}
           >
-            <SmallIconImg champion={player.championName} />
+            <SmallIconImg
+              champion={findRotation(champions[0], [player.championId])}
+            />
             <div className="name">
               <p>{fixName(player.riotIdGameName)}</p>
             </div>
@@ -30,7 +36,9 @@ function MatchedAllPlayers({ allPlayers }: { allPlayers: AllPlayersType[] }) {
             className="img_with_name"
             key={`${player.championName}+${player.goldEarned}`}
           >
-            <SmallIconImg champion={player.championName} />
+            <SmallIconImg
+              champion={findRotation(champions[0], [player.championId])}
+            />
             <div className="name">
               <p>{fixName(player.riotIdGameName)}</p>
             </div>
