@@ -25,7 +25,7 @@ function ChampionDetail() {
       <S_Main>
         <S_Section>
           <SkinImg champion={champion} />
-          <div>
+          <div className="skills">
             <SmallIconImg passive={champion.passive} />
             {champion.spells.map((skill: SkillSpell) => (
               <SmallIconImg skill={skill} key={skill.id} />
@@ -49,7 +49,7 @@ const S_Main = styled.main`
 const S_Section = styled.section`
   display: flex;
 
-  div {
+  .skills {
     margin-left: 50px;
     width: 1370px;
     height: 560px;

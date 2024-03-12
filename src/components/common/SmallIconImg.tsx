@@ -117,39 +117,60 @@ function SmallIconImg({
       </S_figure>
     );
   } else if (skill) {
-    // console.log(skill);
     return (
       <>
         <S_figure className="large">
           <img
             src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/spell/${skill.image.full}`}
             alt={`${skill.image.full} icon`}
-            // data-tooltip-id={skill.id}
-            // data-tooltip-place="right"
-            // data-tooltip-variant="dark"
-            // data-tooltip-delay-show={100}
+            data-tooltip-id={skill.id}
+            data-tooltip-place="right"
+            data-tooltip-variant="dark"
+            data-tooltip-delay-show={100}
           />
         </S_figure>
-        {/* <S_Tooltip
+        <S_Tooltip
           id={skill.id}
           style={{ width: "350px", borderRadius: "4px" }}
           opacity={1}
         >
           <div>
-            <b className="mainRune_name">{skill.name}</b>
-            <p className="description">{skill.tooltip}</p>
+            <b className="skill_name">{skill.name}</b>
+            <p>{skill.description}</p>
+            <p>{skill.cooldown.join("/")}</p>
+            <p>
+              {skill.costType === "소모값 없음"
+                ? "소모값 없음"
+                : skill.cost.join("/")}
+            </p>
           </div>
-        </S_Tooltip> */}
+        </S_Tooltip>
       </>
     );
   } else if (passive) {
     return (
-      <S_figure className="large">
-        <img
-          src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/passive/${passive.image.full}`}
-          alt={`${passive} icon`}
-        />
-      </S_figure>
+      <>
+        <S_figure className="large">
+          <img
+            src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/passive/${passive.image.full}`}
+            alt={`${passive.image.full} icon`}
+            data-tooltip-id={passive.image.full}
+            data-tooltip-place="right"
+            data-tooltip-variant="dark"
+            data-tooltip-delay-show={100}
+          />
+        </S_figure>
+        <S_Tooltip
+          id={passive.image.full}
+          style={{ width: "350px", borderRadius: "4px" }}
+          opacity={1}
+        >
+          <div>
+            <b className="skill_name">{passive.name}</b>
+            <p>{passive.description}</p>
+          </div>
+        </S_Tooltip>
+      </>
     );
   } else {
     return <S_Empty className={skill || passive ? "large" : ""}></S_Empty>;
@@ -189,7 +210,9 @@ const S_Tooltip = styled(Tooltip)`
     flex-direction: column;
     padding: 4px;
 
-    .item_name {
+    .item_name,
+    .cool_down,
+    .skill_name {
       color: var(--color-item);
     }
 
@@ -200,10 +223,6 @@ const S_Tooltip = styled(Tooltip)`
 
     .gold {
       color: var(--color-bg);
-    }
-
-    .cool_down {
-      color: var(--color-item);
     }
   }
 `;
