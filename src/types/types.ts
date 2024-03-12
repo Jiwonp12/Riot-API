@@ -213,6 +213,7 @@ export type SkillSpell = {
   cooldown: number[];
   cost: number[];
   costType: string;
+  description: string;
   id: string;
   image: {
     full: string;
