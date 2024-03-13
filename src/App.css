@@ -7,11 +7,6 @@
 
 html {
   min-width: 1080px;
-  cursor: url(/src/assets/CursorDefault.png) 0 0, auto;
-}
-
-html:active {
-  cursor: url(/src/assets/cursorHover.png) 0 0, auto;
 }
 
 body {
