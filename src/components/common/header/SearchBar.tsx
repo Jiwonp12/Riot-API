@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Search from "@/assets/Search.png";
+import cursorHover from "@/assets/CursorHover.png";
 
 function SearchBar({ location }: { location: string }) {
   const [summonerInput, setSummonerInput] = useState("");
@@ -63,7 +64,7 @@ const S_Label = styled.label`
     font-size: 16px;
     position: relative;
     text-align: ${({ className }) => (className === "/" ? "center" : "")};
-    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
+    cursor: url(${cursorHover}) 0 0, auto;
 
     &::placeholder {
       text-align: ${({ className }) => (className === "/" ? "center" : "")};
@@ -86,6 +87,6 @@ const S_Label = styled.label`
   }
 
   img:hover {
-    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
+    cursor: url(${cursorHover}) 0 0, auto;
   }
 `;

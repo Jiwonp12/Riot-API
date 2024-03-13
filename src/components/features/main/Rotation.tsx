@@ -9,6 +9,7 @@ import { findRotation } from "../../../utils/findChampions";
 import WeeksRotation from "./WeeksRotation";
 import { rotationHeaderText } from "../../../constant/constant";
 import { SwiperType } from "../../../types/types";
+import cursorHover from "@/assets/CursorHover.png";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -91,7 +92,7 @@ const S_Swiper = styled(Swiper)`
   .swiper-button-prev:hover,
   .swiper-button-next:hover {
     color: var(--color-bg2);
-    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
+    cursor: url(${cursorHover}) 0 0, auto;
   }
 
   .swiper-button-disabled {

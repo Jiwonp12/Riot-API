@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ChampionDetailType } from "@/types/types";
 import { useState } from "react";
+import cursorHover from "@/assets/CursorHover.png";
 
 function SkinImg({ champion }: { champion: ChampionDetailType }) {
   const [skinState, setSkinState] = useState(champion.skins[0]);
@@ -34,6 +35,6 @@ const S_figure = styled.figure`
     height: 560px;
     border-radius: 8px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
-    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
+    cursor: url(${cursorHover}) 0 0, auto;
   }
 `;

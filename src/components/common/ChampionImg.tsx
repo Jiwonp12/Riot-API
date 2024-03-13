@@ -3,6 +3,7 @@ import { Tooltip } from "react-tooltip";
 import { gameVersion } from "../../constant/constant";
 import { ChampionType } from "../../types/types";
 import { useNavigate } from "react-router";
+import cursorHover from "@/assets/CursorHover.png";
 
 function ChampionImg({
   champion,
@@ -80,7 +81,7 @@ const S_figure = styled.figure`
   }
 
   img:hover {
-    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
+    cursor: url(${cursorHover}) 0 0, auto;
   }
 `;
 

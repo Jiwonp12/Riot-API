@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { navLists } from "./../../../constant/constant";
 import { useNavigate } from "react-router-dom";
+import cursorHover from "@/assets/CursorHover.png";
 
 function NavList() {
   const [clickedList, setClickedList] = useState(0);
@@ -32,7 +33,7 @@ const S_Ul = styled.ul`
   li {
     font-size: 20px;
     color: var(--color-bg2);
-    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
+    cursor: url(${cursorHover}) 0 0, auto;
     transition: color 0.1s ease;
     margin: 0 12px;
 
