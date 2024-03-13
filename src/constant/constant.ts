@@ -9,6 +9,14 @@ import MASTER from "@/assets/Master.png";
 import GRANDMASTER from "@/assets/Grandmaster.png";
 import CHALLENGER from "@/assets/Challenger.png";
 
+import AllSelected from "@/assets/All.png";
+import Tank from "@/assets/Tank.png";
+import Fighter from "@/assets/Fighter.png";
+import Assassin from "@/assets/Assassin.png";
+import Mage from "@/assets/Mage.png";
+import Marksman from "@/assets/Marksman.png";
+import Support from "@/assets/Support.png";
+
 export const gameVersion = "14.5.1";
 
 export const navLists = [
@@ -48,4 +56,14 @@ export const tiers = [
 export const rotationHeaderText = [
   "이번 주 챔피언 로테이션",
   "이번 주 챔피언 로테이션 (신규 플레이어)",
+];
+
+export const lanes = [
+  { key: "All", src: `${AllSelected}` },
+  { key: "Tank", src: `${Tank}` },
+  { key: "Fighter", src: `${Fighter}` },
+  { key: "Mage", src: `${Mage}` },
+  { key: "Assassin", src: `${Assassin}` },
+  { key: "Marksman", src: `${Marksman}` },
+  { key: "Support", src: `${Support}` },
 ];

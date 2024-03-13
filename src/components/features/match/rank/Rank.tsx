@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import useGetTier from "../../../queries/useGetTier";
+import useGetTier from "../../../../queries/useGetTier";
 import RankGame from "./RankGame";
 
 function Rank({ id }: { id: string }) {

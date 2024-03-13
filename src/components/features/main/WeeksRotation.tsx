@@ -7,12 +7,12 @@ function WeeksRotation({ champions }: { champions: ChampionType[] }) {
     <S_Div>
       <div className="flex first">
         {champions.slice(0, 10).map(champion => (
-          <ChampionImg key={champion.id} champion={champion} champLevel={0} />
+          <ChampionImg key={champion.id} champion={champion} type="rotation" />
         ))}
       </div>
       <div className="flex">
         {champions.slice(10, 20).map(champion => (
-          <ChampionImg key={champion.id} champion={champion} champLevel={0} />
+          <ChampionImg key={champion.id} champion={champion} type="rotation" />
         ))}
       </div>
     </S_Div>

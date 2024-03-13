@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Tooltip } from "react-tooltip";
-import HtmlReactParser from "html-react-parser";
+import DOMPurify from "dompurify";
 import { gameVersion, runeTypes } from "../../constant/constant";
 import { SmallIconImgType } from "../../types/types";
 
@@ -13,6 +13,10 @@ function SmallIconImg({
   skill,
   passive,
 }: SmallIconImgType) {
+  const sanitizeHtml = (html: string) => {
+    return DOMPurify.sanitize(html);
+  };
+
   if (item) {
     return (
       <>
@@ -36,7 +40,12 @@ function SmallIconImg({
           <div>
             <b className="item_name">{item.name}</b>
             <p className="plain">{item.plaintext}</p>
-            <p className="description">{HtmlReactParser(item.description)}</p>
+            <p
+              className="description"
+              dangerouslySetInnerHTML={{
+                __html: sanitizeHtml(item.description),
+              }}
+            />
             <p className="gold">{`${item.gold.total}(${item.gold.base})`}</p>
           </div>
         </S_Tooltip>
@@ -62,8 +71,13 @@ function SmallIconImg({
         >
           <div>
             <b className="spell_name">{spell.name}</b>
-            <p className="description">{HtmlReactParser(spell.description)}</p>
-            <p className="cool_down">{`${spell.cooldownBurn}`}</p>
+            <p
+              className="description"
+              dangerouslySetInnerHTML={{
+                __html: sanitizeHtml(spell.description),
+              }}
+            />
+            <p className="cool_down">{`재사용 대기시간: ${spell.cooldownBurn}`}</p>
           </div>
         </S_Tooltip>
       </>
@@ -90,7 +104,12 @@ function SmallIconImg({
         >
           <div>
             <b className="mainRune_name">{mainRune.name}</b>
-            <p className="description">{HtmlReactParser(mainRune.longDesc)}</p>
+            <p
+              className="description"
+              dangerouslySetInnerHTML={{
+                __html: sanitizeHtml(mainRune.longDesc),
+              }}
+            />
           </div>
         </S_Tooltip>
       </>
@@ -136,13 +155,19 @@ function SmallIconImg({
         >
           <div>
             <b className="skill_name">{skill.name}</b>
-            <p>{skill.description}</p>
-            <p>{skill.cooldown.join("/")}</p>
-            <p>
-              {skill.costType === "소모값 없음"
-                ? "소모값 없음"
-                : skill.cost.join("/")}
+            <p className="skill_p">{`재사용 대기시간: ${skill.cooldown.join(
+              "/"
+            )}`}</p>
+            <p className="skill_p">
+              {`소모:
+              ${
+                skill.costType === "소모값 없음"
+                  ? "소모값 없음"
+                  : skill.cost.join("/")
+              }`}
             </p>
+            <p className="skill_p">{`범위: ${skill.range.join("/")}`}</p>
+            <p className="description">{skill.description}</p>
           </div>
         </S_Tooltip>
       </>
@@ -186,6 +211,7 @@ const S_figure = styled.figure`
   border-radius: 4px;
   box-shadow: ${({ className }) =>
     className === "large" ? " 0 2px 2px 0 rgba(0, 0, 0, 0.19)" : ""};
+  background: var(--color-white3);
 
   img {
     object-fit: contain;
@@ -201,28 +227,52 @@ const S_Empty = styled.figure`
   border: 1px solid var(--color-white);
   margin: 0 1px 0;
   border-radius: 4px;
-  background: var(--color-gray);
+  background: var(--color-white3);
 `;
 
 const S_Tooltip = styled(Tooltip)`
+  z-index: 10;
+
   div {
     display: flex;
     flex-direction: column;
     padding: 4px;
 
     .item_name,
-    .cool_down,
-    .skill_name {
+    .cool_down {
       color: var(--color-item);
     }
 
     .spell_name,
-    .mainRune_name {
+    .mainRune_name,
+    .skill_name {
       color: var(--color-bg);
     }
 
+    .cool_down {
+      margin-top: 4px;
+    }
+
     .gold {
+      margin-top: 4px;
       color: var(--color-bg);
     }
+  }
+
+  .plain {
+    margin-bottom: 4px;
+  }
+
+  .plain,
+  .skill_p {
+    color: var(--color-white3);
+  }
+
+  .description {
+    margin-top: 12px;
+  }
+
+  b {
+    margin-bottom: 4px;
   }
 `;

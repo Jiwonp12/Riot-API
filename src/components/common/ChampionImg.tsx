@@ -7,19 +7,23 @@ import { useNavigate } from "react-router";
 function ChampionImg({
   champion,
   champLevel,
+  type,
 }: {
   champion: ChampionType;
-  champLevel: number;
+  champLevel?: number;
+  type?: string;
 }) {
   const navigate = useNavigate();
+  const cssType =
+    type === "rotation" ? "rotation" : type === "all" ? "all" : "small";
 
   const handleClick = (champion: string) => {
     navigate(`/champions/${champion}`);
   };
 
   return (
-    <S_figure className={champLevel === 0 ? "rotation" : "small_icon"}>
-      {champLevel === 0 || <span>{champLevel}</span>}
+    <S_figure className={cssType}>
+      {cssType === "small" && <span>{champLevel}</span>}
       <img
         src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/champion/${champion.id}.png`}
         alt={`${champion.name} icon`}
@@ -27,7 +31,7 @@ function ChampionImg({
         data-tooltip-place="top"
         data-tooltip-variant="dark"
         data-tooltip-delay-show={100}
-        className={champLevel === 0 ? "rotation" : "small_icon"}
+        className={cssType}
         onClick={() => handleClick(champion.id)}
       />
       <S_Tooltip id={champion.id} style={{ borderRadius: "4px" }} opacity={1}>
@@ -55,18 +59,34 @@ const S_figure = styled.figure`
   }
 
   img {
-    width: ${({ className }) => (className === "rotation" ? "90px" : "70px")};
+    width: ${({ className }) =>
+      className === "rotation"
+        ? "90px"
+        : className === "all"
+        ? "60px"
+        : "70px"};
     border-radius: ${({ className }) =>
-      className === "rotation" ? "4px" : "50%"};
-    margin: ${({ className }) => (className === "rotation" ? "0 10px" : "0")};
+      className === "rotation" || className === "all" ? "4px" : "50%"};
+    margin: ${({ className }) =>
+      className === "rotation"
+        ? "0 10px"
+        : className === "all"
+        ? "0 1.7px"
+        : "0"};
     box-shadow: ${({ className }) =>
-      className === "rotation" ? " 0 2px 2px 0 rgba(0, 0, 0, 0.19)" : ""};
-    cursor: pointer;
+      className === "rotation" || className === "all"
+        ? " 0 2px 2px 0 rgba(0, 0, 0, 0.19)"
+        : ""};
+  }
+
+  img:hover {
+    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
   }
 `;
 
 const S_Tooltip = styled(Tooltip)`
   z-index: 10;
+
   div {
     padding: 2px;
 

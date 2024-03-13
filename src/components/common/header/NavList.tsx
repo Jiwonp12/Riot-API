@@ -32,7 +32,7 @@ const S_Ul = styled.ul`
   li {
     font-size: 20px;
     color: var(--color-bg2);
-    cursor: pointer;
+    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
     transition: color 0.1s ease;
     margin: 0 12px;
 

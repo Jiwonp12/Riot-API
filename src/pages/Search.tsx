@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import useGetSummonerQuery from "../queries/useGetSummonerQuery";
 import Matches from "../components/features/Matches";
 import SearchedPlayerHeader from "../components/features/SearchedPlayerHeader";
-import Rank from "../components/features/rank/Rank";
+import Rank from "../components/features/match/rank/Rank";
 
 function Search() {
   const { summoner = "" } = useParams<{ summoner: string }>();
