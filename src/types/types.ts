@@ -222,6 +222,7 @@ export type SkillSpell = {
   };
   maxrank: number;
   name: string;
+  range: number[];
   resource: string;
   tooltip: string;
 };
@@ -234,4 +235,8 @@ export type Passive = {
     sprite: string;
   };
   name: string;
+};
+
+export type LanesProps = {
+  click: (lane: string) => void;
 };

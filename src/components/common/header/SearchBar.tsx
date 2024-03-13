@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Search from "@/assets/Search.png";
 
 function SearchBar({ location }: { location: string }) {
   const [summonerInput, setSummonerInput] = useState("");
@@ -37,7 +36,9 @@ function SearchBar({ location }: { location: string }) {
         onChange={handleChange}
         onKeyUp={handleKeyUp}
       ></input>
-      <FontAwesomeIcon icon={faMagnifyingGlass} onClick={handleClick} />
+      <figure>
+        <img src={Search} alt="search icon" onClick={handleClick} />
+      </figure>
     </S_Label>
   );
 }
@@ -62,6 +63,7 @@ const S_Label = styled.label`
     font-size: 16px;
     position: relative;
     text-align: ${({ className }) => (className === "/" ? "center" : "")};
+    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
 
     &::placeholder {
       text-align: ${({ className }) => (className === "/" ? "center" : "")};
@@ -75,13 +77,15 @@ const S_Label = styled.label`
     }
   }
 
-  svg {
-    font-size: 24px;
-    cursor: pointer;
+  img {
+    width: 44px;
     position: absolute;
     right: ${({ className }) => (className === "/" ? "20px" : "8px")};
     top: 50%;
     transform: translateY(-50%);
-    color: var(--color-bg);
+  }
+
+  img:hover {
+    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
   }
 `;

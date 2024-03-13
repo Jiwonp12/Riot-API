@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { RankType } from "../../../types/types";
-import TierImg from "../../common/TierImg";
+import { RankType } from "../../../../types/types";
+import TierImg from "../../../common/TierImg";
 
 function RankGame({ type }: { type: RankType }) {
   if (type) {

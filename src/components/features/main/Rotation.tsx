@@ -78,12 +78,6 @@ const S_Swiper = styled(Swiper)`
   display: flex;
   flex-direction: column;
 
-  .swiper-button-prev {
-  }
-
-  .swiper-button-next {
-  }
-
   .swiper-button-prev,
   .swiper-button-next {
     width: 80px;
@@ -97,6 +91,7 @@ const S_Swiper = styled(Swiper)`
   .swiper-button-prev:hover,
   .swiper-button-next:hover {
     color: var(--color-bg2);
+    cursor: url(/src/assets/cursorHover.png) 0 0, auto;
   }
 
   .swiper-button-disabled {
