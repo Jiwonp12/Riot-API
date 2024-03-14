@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import useGetSummonerQuery from "../queries/useGetSummonerQuery";
 import Matches from "../components/features/Matches";
 import SearchedPlayerHeader from "../components/features/SearchedPlayerHeader";
-import Rank from "../components/features/match/rank/Rank";
+import MatchAside from "../components/features/match/matchAside/MatchAside";
 
 function Search() {
   const { summoner = "" } = useParams<{ summoner: string }>();
@@ -17,7 +17,7 @@ function Search() {
     <S_Main>
       <SearchedPlayerHeader data={data} />
       <div className="content">
-        <Rank id={data.id} />
+        <MatchAside id={data.id} puuid={data.puuid} />
         <Matches puuid={data.puuid} />
       </div>
     </S_Main>

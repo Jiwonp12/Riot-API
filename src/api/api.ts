@@ -72,3 +72,10 @@ export const GetChampionRotation = () =>
       `    https://kr.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=${key}`
     )
     .then(res => res.data);
+
+export const GetAllMastery = (puuid: string) =>
+  axios
+    .get(
+      `https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/${puuid}/top?count=10&api_key=${key}`
+    )
+    .then(res => res.data);

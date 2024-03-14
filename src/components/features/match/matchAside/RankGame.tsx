@@ -9,7 +9,7 @@ function RankGame({ type }: { type: RankType }) {
       type.queueType === "RANKED_SOLO_5x5" ? "솔로 랭크" : "자유 랭크";
 
     return (
-      <S_Aside>
+      <S_Content>
         <p className="queue">{queueType}</p>
         <div className="flex">
           <TierImg tier={type.tier} />
@@ -22,7 +22,7 @@ function RankGame({ type }: { type: RankType }) {
             <p>{`승률 ${winRate}%`}</p>
           </div>
         </div>
-      </S_Aside>
+      </S_Content>
     );
   } else {
     return <></>;
@@ -31,7 +31,7 @@ function RankGame({ type }: { type: RankType }) {
 
 export default RankGame;
 
-const S_Aside = styled.aside`
+const S_Content = styled.div`
   width: 400px;
   margin: 20px 0;
   background: var(--color-white);
