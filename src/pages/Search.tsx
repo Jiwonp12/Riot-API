@@ -17,7 +17,7 @@ function Search() {
     <S_Main>
       <SearchedPlayerHeader data={data} />
       <div className="content">
-        <MatchAside id={data.id} puuid={data.puuid} />
+        <MatchAside id={data.id} />
         <Matches puuid={data.puuid} />
       </div>
     </S_Main>
