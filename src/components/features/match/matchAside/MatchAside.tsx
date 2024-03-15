@@ -7,6 +7,7 @@ function Rank({ id }: { id: string }) {
 
   if (isSuccess) {
     const [freeRank, soloRank] = data;
+
     return (
       <S_Aside>
         <RankGame type={soloRank} />

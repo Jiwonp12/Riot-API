@@ -240,3 +240,15 @@ export type Passive = {
 export type LanesProps = {
   click: (lane: string) => void;
 };
+
+export type MasteryType = {
+  championId: number;
+  championLevel: number;
+  championPoints: number;
+  championPointsSinceLastLevel: number;
+  championPointsUntilNextLevel: number;
+  chestGranted: boolean;
+  lastPlayTime: number;
+  puuid: number;
+  tokensEarned: number;
+}[];

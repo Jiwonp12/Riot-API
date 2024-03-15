@@ -72,7 +72,6 @@ function SmallIconImg({
           <div>
             <b className="spell_name">{spell.name}</b>
             <p
-              className="description"
               dangerouslySetInnerHTML={{
                 __html: sanitizeHtml(spell.description),
               }}

@@ -21,10 +21,7 @@ function SearchBar({ location }: { location: string }) {
 
   const handleKeyUp = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      if (summonerInput.length) {
-        setSummonerInput("");
-        navigate(`/search/summoners/${summonerInput}`);
-      }
+      handleClick();
     }
   };
 
@@ -68,7 +65,7 @@ const S_Label = styled.label`
 
     &::placeholder {
       text-align: ${({ className }) => (className === "/" ? "center" : "")};
-      color: var(--color-dark);
+      color: var(--color-gray);
     }
     &:focus {
       outline: none;
@@ -79,7 +76,7 @@ const S_Label = styled.label`
   }
 
   img {
-    width: 44px;
+    width: ${({ className }) => (className === "/" ? "44px" : "32px")};
     position: absolute;
     right: ${({ className }) => (className === "/" ? "20px" : "8px")};
     top: 50%;
