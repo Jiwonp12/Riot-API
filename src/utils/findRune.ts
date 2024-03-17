@@ -12,12 +12,17 @@ const findRunes = (playerMainRune: number, runes: Rune[]) => {
   );
 };
 
-export const findRune = (
+export const findMainRune = (
   playerMainRune: number,
   runes: Rune[]
-): MainRune | undefined => {
+): MainRune => {
   const mainRunes = findRunes(playerMainRune, runes);
-  return mainRunes?.runes.find(picked => picked.id === playerMainRune) as
-    | MainRune
-    | undefined;
+  return mainRunes?.runes.find(
+    picked => picked.id === playerMainRune
+  ) as MainRune;
+};
+
+export const findSubRune = (playerMainRune: number, runes: Rune[]) => {
+  const mainRunes = findRunes(playerMainRune, runes);
+  return mainRunes?.runes.find(picked => picked.id === playerMainRune);
 };

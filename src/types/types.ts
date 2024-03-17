@@ -10,6 +10,41 @@ export type Player = {
 
 export type Participants = {
   summonerName: string;
+  riotIdGameName: string;
+  assists: number;
+  championId: number;
+  champLevel: number;
+  deaths: number;
+  item0: number;
+  item1: number;
+  item2: number;
+  item3: number;
+  item4: number;
+  item5: number;
+  kills: number;
+  spell1Casts: number;
+  spell2Casts: number;
+  spell3Casts: number;
+  spell4Casts: number;
+  summoner1Casts: number;
+  summoner1Id: number;
+  summoner2Casts: number;
+  summoner2Id: number;
+  totalDamageDealtToChampions: number;
+  totalDamageTaken: number;
+  neutralMinionsKilled: number;
+  totalMinionsKilled: number;
+  win: boolean;
+  perks: {
+    styles: Styles[];
+  };
+};
+
+export type Styles = {
+  description: string;
+  selections: {
+    perk: number;
+  }[];
 };
 
 export type Teams = {
@@ -19,11 +54,12 @@ export type Teams = {
 export type SmallIconImgType = {
   item?: ItemType | undefined;
   spell?: Spell;
-  mainRune?: MainRune | undefined;
+  mainRune?: MainRune;
   subRune?: string;
   champion?: ChampionType[];
   skill?: SkillSpell | undefined;
   passive?: Passive | undefined;
+  type?: string;
 };
 
 export type ItemType = {
@@ -80,6 +116,8 @@ export type Rune = {
   id: number;
   key: string;
   name: string;
+  longDesc: string;
+  shortDesc: string;
   slots: RuneSlots[];
 };
 

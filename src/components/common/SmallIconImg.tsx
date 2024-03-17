@@ -12,6 +12,7 @@ function SmallIconImg({
   champion,
   skill,
   passive,
+  type,
 }: SmallIconImgType) {
   const sanitizeHtml = (html: string) => {
     return DOMPurify.sanitize(html);
@@ -20,7 +21,7 @@ function SmallIconImg({
   if (item) {
     return (
       <>
-        <S_figure>
+        <S_figure className={type}>
           {item !== null && (
             <img
               src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/item/${item.image.full}`}
@@ -54,7 +55,7 @@ function SmallIconImg({
   } else if (spell) {
     return (
       <>
-        <S_figure>
+        <S_figure className={type}>
           <img
             src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/spell/${spell.id}.png`}
             alt={`${spell.id} icon`}
@@ -84,7 +85,7 @@ function SmallIconImg({
   } else if (mainRune) {
     return (
       <>
-        <S_figure>
+        <S_figure className={type}>
           <img
             src={`https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${
               mainRune.icon.split("Styles/")[1]
@@ -118,7 +119,7 @@ function SmallIconImg({
       rune => rune.key === subRune.split("/")[2]
     )?.value;
     return (
-      <S_figure>
+      <S_figure className={type}>
         <img
           src={`https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${subRuneValue}.png`}
           alt={`${subRuneValue} icon`}
@@ -203,8 +204,10 @@ function SmallIconImg({
 export default SmallIconImg;
 
 const S_figure = styled.figure`
-  width: ${({ className }) => (className === "large" ? "80px" : "32px")};
-  height: ${({ className }) => (className === "large" ? "80px" : "32px")};
+  width: ${({ className }) =>
+    className === "large" ? "80px" : className === "small" ? "28px" : "32px"};
+  height: ${({ className }) =>
+    className === "large" ? "80px" : className === "small" ? "28px" : "32px"};
   border: 1px solid var(--color-white);
   margin: 0 1px 0;
   border-radius: 4px;
@@ -221,8 +224,10 @@ const S_figure = styled.figure`
 `;
 
 const S_Empty = styled.figure`
-  width: ${({ className }) => (className === "large" ? "80px" : "32px")};
-  height: ${({ className }) => (className === "large" ? "80px" : "32px")};
+  width: ${({ className }) =>
+    className === "large" ? "80px" : className === "small" ? "28px" : "32px"};
+  height: ${({ className }) =>
+    className === "large" ? "80px" : className === "small" ? "28px" : "32px"};
   border: 1px solid var(--color-white);
   margin: 0 1px 0;
   border-radius: 4px;
