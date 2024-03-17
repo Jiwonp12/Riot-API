@@ -16,7 +16,13 @@ function ChampionImg({
 }) {
   const navigate = useNavigate();
   const cssType =
-    type === "rotation" ? "rotation" : type === "all" ? "all" : "small";
+    type === "rotation"
+      ? "rotation"
+      : type === "all"
+      ? "all"
+      : type === "small"
+      ? "small"
+      : "any";
 
   const handleClick = (champion: string) => {
     navigate(`/champions/${champion}`);
@@ -24,7 +30,7 @@ function ChampionImg({
 
   return (
     <S_figure className={cssType}>
-      {cssType === "small" && <span>{champLevel}</span>}
+      {(cssType === "small" || cssType === "any") && <span>{champLevel}</span>}
       <img
         src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/champion/${champion.id}.png`}
         alt={`${champion.name} icon`}
@@ -54,8 +60,9 @@ const S_figure = styled.figure`
     padding: 4px;
     background: var(--color-dark);
     border-radius: 50%;
-    bottom: 0;
-    right: 0;
+    bottom: ${({ className }) => (className === "small" ? "-3px" : "0")};
+    right: ${({ className }) => (className === "small" ? "" : "0")};
+    left: ${({ className }) => (className === "small" ? "-8px" : "")};
     color: var(--color-white);
   }
 
@@ -65,6 +72,8 @@ const S_figure = styled.figure`
         ? "90px"
         : className === "all"
         ? "60px"
+        : className === "small"
+        ? "40px"
         : "70px"};
     border-radius: ${({ className }) =>
       className === "rotation" || className === "all" ? "4px" : "50%"};
