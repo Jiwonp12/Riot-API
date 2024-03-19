@@ -72,3 +72,24 @@ export const GetChampionRotation = () =>
       `    https://kr.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=${key}`
     )
     .then(res => res.data);
+
+export const GetChallengerSoloData = () =>
+  axios
+    .get(
+      `    https://kr.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5?api_key=${key}`
+    )
+    .then(res => res.data);
+
+export const GetChallengerFreeData = () =>
+  axios
+    .get(
+      `    https://kr.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_FLEX_SR?api_key=${key}`
+    )
+    .then(res => res.data);
+
+export const GetSummonerBySummonerId = (summonerId: string) =>
+  axios
+    .get(
+      `https://kr.api.riotgames.com/lol/summoner/v4/summoners/${summonerId}?api_key=${key}`
+    )
+    .then(res => res.data);
