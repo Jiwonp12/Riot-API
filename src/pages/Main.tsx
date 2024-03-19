@@ -4,9 +4,19 @@ import useGetSpellData from "../queries/data/useGetSpellData";
 import useGetRuneData from "../queries/data/useGetRuneData";
 import useGetItemData from "../queries/data/useGetItemData";
 import useGetChampionData from "../queries/data/useGetChampionData";
-import { championAtom, itemAtom, runeAtom, spellAtom } from "../atoms/atom";
-import { Spell } from "../types/types";
+import {
+  championAtom,
+  freeRankAtom,
+  itemAtom,
+  runeAtom,
+  soloRankAtom,
+  spellAtom,
+} from "../atoms/atom";
+import { Challenger, Spell } from "../types/types";
 import Rotation from "../components/features/main/Rotation";
+import Ranking from "@/components/features/main/Ranking";
+import useGetChallengerSoloData from "@/queries/data/useGetChallenger";
+import useGetChallengerFreeData from "@/queries/data/useGetChallengerFreeData";
 
 function Main() {
   const { isSuccess: spellIsSuccess, data: spellData } = useGetSpellData();
@@ -14,10 +24,17 @@ function Main() {
   const { isSuccess: itemIsSuccess, data: itemData } = useGetItemData();
   const { isSuccess: championIsSuccess, data: championData } =
     useGetChampionData();
+  const { isSuccess: soloRankIsSuccess, data: soloRankData } =
+    useGetChallengerSoloData();
+  const { isSuccess: freeRankIsSuccess, data: freeRankData } =
+    useGetChallengerFreeData();
+
   const [spellState, setSpellState] = useRecoilState(spellAtom);
   const [runeState, setRuneState] = useRecoilState(runeAtom);
   const [itemState, setItemState] = useRecoilState(itemAtom);
   const [championState, setChampionState] = useRecoilState(championAtom);
+  const [soloRankState, setSoloRankState] = useRecoilState(soloRankAtom);
+  const [freeRankState, setFreeRankState] = useRecoilState(freeRankAtom);
 
   if (spellIsSuccess && spellState.length === 0) {
     setTimeout(() => {
@@ -43,9 +60,30 @@ function Main() {
     }, 0);
   }
 
+  if (soloRankIsSuccess && soloRankState.length === 0) {
+    setTimeout(() => {
+      setSoloRankState([
+        soloRankData.entries.sort(
+          (a: Challenger, b: Challenger) => b.leaguePoints - a.leaguePoints
+        ),
+      ]);
+    }, 0);
+  }
+
+  if (freeRankIsSuccess && freeRankState.length === 0) {
+    setTimeout(() => {
+      setFreeRankState([
+        freeRankData.entries.sort(
+          (a: Challenger, b: Challenger) => b.leaguePoints - a.leaguePoints
+        ),
+      ]);
+    }, 0);
+  }
+
   return (
     <S_Main>
       <Rotation />
+      <Ranking />
     </S_Main>
   );
 }
@@ -54,7 +92,8 @@ export default Main;
 
 const S_Main = styled.main`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background: var(--color-bg);
   padding: 20px 100px;
 `;

@@ -27,3 +27,15 @@ export const championAtom = atom({
   default: [],
   effects_UNSTABLE: [persistAtom],
 });
+
+export const soloRankAtom = atom({
+  key: "soloRankAtom",
+  default: [],
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const freeRankAtom = atom({
+  key: "freeRankAtom",
+  default: [],
+  effects_UNSTABLE: [persistAtom],
+});
