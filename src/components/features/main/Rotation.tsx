@@ -58,18 +58,18 @@ function Rotation() {
 export default Rotation;
 
 const S_Nav = styled.nav`
-  width: 1300px;
-  min-width: 1080px;
+  width: 900px;
+  max-width: 1080px;
   background: var(--color-white);
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
-  padding: 20px;
+  padding: 15px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 
   header {
-    font-size: 20px;
+    font-size: 14px;
     color: var(--color-dark);
   }
 `;
@@ -82,9 +82,9 @@ const S_Swiper = styled(Swiper)`
   .swiper-button-prev,
   .swiper-button-next {
     width: 80px;
-    height: 206px;
-    top: 50%;
-    transform: translateY(-35%);
+    height: 124px;
+    top: 68%;
+    transform: translateY(-50%);
     color: var(--color-bg);
     position: absolute;
   }
@@ -101,13 +101,13 @@ const S_Swiper = styled(Swiper)`
 `;
 
 const S_Loading = styled.nav`
-  width: 1300px;
+  width: 900px;
   height: 295.2px;
   background: var(--color-white);
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 `;

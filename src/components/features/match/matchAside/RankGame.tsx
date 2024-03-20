@@ -32,8 +32,8 @@ function RankGame({ type }: { type: RankType }) {
 export default RankGame;
 
 const S_Content = styled.div`
-  width: 400px;
-  margin: 20px 0;
+  width: 300px;
+  margin: 10px 0;
   background: var(--color-white);
   border-radius: 8px;
   color: var(--color-dark);
@@ -41,20 +41,19 @@ const S_Content = styled.div`
   .queue {
     text-align: center;
     border-bottom: 1px solid var(--color-white2);
-    padding: 12px 0;
-    font-size: 18px;
+    padding: 8px 0;
   }
 
   .flex {
-    padding: 16px;
+    padding: 10px;
     display: flex;
     align-items: center;
 
     .rank_lp {
-      margin: 0 12px;
+      margin: 0 10px;
 
       p:first-child {
-        font-size: 24px;
+        font-size: 14px;
         font-weight: 600;
       }
     }

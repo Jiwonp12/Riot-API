@@ -16,27 +16,27 @@ function MatchDetail({ data }: { data: Participants[] }) {
   return (
     <S_Table>
       <div className="div_header">
-        <b className="w_60">챔피언</b>
-        <b className="w_100">스펠/룬</b>
-        <b className="w_200">이름</b>
-        <b className="w_130">KDA</b>
-        <b className="w_130">피해량</b>
-        <b className="w_85">CS</b>
-        <b className="w_210">아이템</b>
+        <b className="w_40">챔피언</b>
+        <b className="w_70">스펠/룬</b>
+        <b className="w_100">이름</b>
+        <b className="w_106">KDA</b>
+        <b className="w_106">피해량</b>
+        <b className="w_40">CS</b>
+        <b className="w_160">아이템</b>
       </div>
       {data.map(player => (
         <div
           key={player.totalDamageDealtToChampions}
           className={player.win ? "win" : "lose"}
         >
-          <span className="w_60">
+          <span className="w_40">
             <ChampionImg
               champion={findChampion(champions[0], player.championId)[0]}
               champLevel={player.champLevel}
               type={"small"}
             />
           </span>
-          <div className="w_100 div_flex">
+          <div className="w_70 div_flex">
             <div>
               <SmallIconImg
                 spell={spells.find(
@@ -68,10 +68,10 @@ function MatchDetail({ data }: { data: Participants[] }) {
               />
             </div>
           </div>
-          <div className="w_200">
+          <div className="w_100">
             <b className="b_name">{player.riotIdGameName}</b>
           </div>
-          <div className="div_kda w_130">
+          <div className="div_kda w_106">
             <p>{`${player.kills} / ${player.deaths} / ${player.assists}`}</p>
             <p>
               {`평점 ${(
@@ -80,16 +80,16 @@ function MatchDetail({ data }: { data: Participants[] }) {
               ).toFixed(2)}`}
             </p>
           </div>
-          <div className="div_damage w_130">
+          <div className="div_damage w_106">
             <b className={`b_attack ${player.win ? "b_win" : "b_lose"}`}>
               {player.totalDamageDealtToChampions}
             </b>
             <b className="b_deffence">{player.totalDamageTaken}</b>
           </div>
-          <p className="p_cs w_85">
+          <p className="p_cs w_40">
             {player.neutralMinionsKilled + player.totalMinionsKilled}
           </p>
-          <div className="div_items w_210">
+          <div className="div_items w_160">
             <SmallIconImg item={items[0][player.item0]} />
             <SmallIconImg item={items[0][player.item1]} />
             <SmallIconImg item={items[0][player.item2]} />
@@ -116,13 +116,18 @@ const S_Table = styled.div`
     align-items: center;
   }
 
-  .w_60 {
-    width: 60px;
+  .w_40 {
+    width: 40px;
     display: flex;
     justify-content: center;
   }
-  .w_85 {
-    width: 84.98px;
+  .w_70 {
+    width: 70px;
+    display: flex;
+    justify-content: center;
+  }
+  .w_106 {
+    width: 106.5px;
     display: flex;
     justify-content: center;
   }
@@ -130,20 +135,10 @@ const S_Table = styled.div`
     width: 100px;
     display: flex;
     justify-content: center;
-  }
-  .w_130 {
-    width: 130px;
-    display: flex;
-    justify-content: center;
-  }
-  .w_200 {
-    width: 200px;
-    display: flex;
-    justify-content: center;
     align-items: center;
   }
-  .w_210 {
-    width: 210px;
+  .w_160 {
+    width: 160px;
     display: flex;
     justify-content: center;
   }
@@ -151,10 +146,11 @@ const S_Table = styled.div`
   .div_flex {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .div_header {
-    padding: 4px 20px;
+    padding: 10px;
     display: flex;
     color: var(--color-dark);
     background: var(--color-white);
@@ -164,7 +160,7 @@ const S_Table = styled.div`
   .win,
   .lose {
     display: flex;
-    padding: 4px 20px;
+    padding: 4px 10px;
   }
 
   .win {

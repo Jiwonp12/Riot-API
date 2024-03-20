@@ -31,7 +31,7 @@ const S_Ul = styled.ul`
   margin-bottom: 4px;
 
   li {
-    font-size: 20px;
+    font-size: 14px;
     color: var(--color-bg2);
     cursor: url(${cursorHover}) 0 0, auto;
     transition: color 0.1s ease;

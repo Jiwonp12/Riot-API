@@ -20,5 +20,5 @@ function Rank({ id }: { id: string }) {
 export default Rank;
 
 const S_Aside = styled.aside`
-  margin-right: 20px;
+  margin-right: 10px;
 `;

@@ -137,9 +137,9 @@ export default Match;
 const S_Article = styled.article`
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 10px;
   border-radius: 8px;
-  padding: 12px;
+  padding: 10px;
   color: var(--color-gray);
 
   .flex {
@@ -178,7 +178,7 @@ const S_DivLeft = styled.div`
 
 const S_DivMid = styled.div`
   display: flex;
-  padding: 0 48px;
+  padding-left: 55px;
 
   .mid_flex_col {
     display: flex;
@@ -186,8 +186,8 @@ const S_DivMid = styled.div`
     justify-content: space-evenly;
 
     .item {
-      width: 295px;
-      padding-top: 8px;
+      width: 250px;
+      padding-top: 10px;
     }
   }
 
@@ -196,8 +196,7 @@ const S_DivMid = styled.div`
     align-items: center;
 
     .spell {
-      padding: 0 12px;
-      margin-left: 12px;
+      padding: 0 10px;
     }
   }
 
@@ -209,9 +208,9 @@ const S_DivMid = styled.div`
 
     .mid_text {
       color: var(--color-dark);
-      font-size: 20px;
+      font-size: 14px;
       font-weight: 600;
-      margin-left: 12px;
+      margin-left: 10px;
     }
   }
 `;
@@ -219,13 +218,13 @@ const S_DivMid = styled.div`
 const S_Button = styled.div`
   display: flex;
   align-items: flex-end;
-  margin-left: 44px;
+  margin-left: 10px;
 
   figure {
     position: relative;
 
     img {
-      width: 45px;
+      width: 30px;
     }
 
     img:hover {

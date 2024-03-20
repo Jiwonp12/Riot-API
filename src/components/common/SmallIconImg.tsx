@@ -35,7 +35,7 @@ function SmallIconImg({
         </S_figure>
         <S_Tooltip
           id={item.name}
-          style={{ width: "350px", borderRadius: "4px" }}
+          style={{ maxWidth: "300px", borderRadius: "4px", minWidth: "150px" }}
           opacity={1}
         >
           <div>
@@ -67,7 +67,7 @@ function SmallIconImg({
         </S_figure>
         <S_Tooltip
           id={spell.name}
-          style={{ width: "350px", borderRadius: "4px" }}
+          style={{ maxWidth: "300px", borderRadius: "4px", minWidth: "150px" }}
           opacity={1}
         >
           <div>
@@ -99,7 +99,7 @@ function SmallIconImg({
         </S_figure>
         <S_Tooltip
           id={mainRune.name}
-          style={{ width: "350px", borderRadius: "4px" }}
+          style={{ maxWidth: "300px", borderRadius: "4px", minWidth: "150px" }}
           opacity={1}
         >
           <div>
@@ -150,7 +150,7 @@ function SmallIconImg({
         </S_figure>
         <S_Tooltip
           id={skill.id}
-          style={{ width: "350px", borderRadius: "4px" }}
+          style={{ maxWidth: "300px", borderRadius: "4px", minWidth: "150px" }}
           opacity={1}
         >
           <div>
@@ -187,7 +187,7 @@ function SmallIconImg({
         </S_figure>
         <S_Tooltip
           id={passive.image.full}
-          style={{ width: "350px", borderRadius: "4px" }}
+          style={{ maxWidth: "300px", borderRadius: "4px", minWidth: "150px" }}
           opacity={1}
         >
           <div>
@@ -205,9 +205,9 @@ export default SmallIconImg;
 
 const S_figure = styled.figure`
   width: ${({ className }) =>
-    className === "large" ? "80px" : className === "small" ? "24px" : "32px"};
+    className === "large" ? "80px" : className === "small" ? "20px" : "22px"};
   height: ${({ className }) =>
-    className === "large" ? "80px" : className === "small" ? "24px" : "32px"};
+    className === "large" ? "80px" : className === "small" ? "20px" : "22px"};
   border: 1px solid var(--color-white);
   margin: 0 1px 0;
   border-radius: 4px;
@@ -225,9 +225,9 @@ const S_figure = styled.figure`
 
 const S_Empty = styled.figure`
   width: ${({ className }) =>
-    className === "large" ? "80px" : className === "small" ? "24px" : "32px"};
+    className === "large" ? "80px" : className === "small" ? "20px" : "22px"};
   height: ${({ className }) =>
-    className === "large" ? "80px" : className === "small" ? "24px" : "32px"};
+    className === "large" ? "80px" : className === "small" ? "20px" : "22px"};
   border: 1px solid var(--color-white);
   margin: 0 1px 0;
   border-radius: 4px;
