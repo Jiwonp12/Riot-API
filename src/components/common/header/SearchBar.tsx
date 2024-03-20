@@ -44,7 +44,8 @@ function SearchBar({ location }: { location: string }) {
 export default SearchBar;
 
 const S_Label = styled.label`
-  width: ${({ className }) => (className === "/" ? "800px" : "100%")};
+  width: ${({ className }) => (className === "/" ? "800px" : "1210px")};
+  max-width: ${({ className }) => (className === "/" ? "800px" : "1210px")};
   height: ${({ className }) => (className === "/" ? "60px" : "40px")};
   display: flex;
   align-self: ${({ className }) => (className === "/" ? "center" : "")};

@@ -83,7 +83,7 @@ function Main() {
   return (
     <S_Main>
       <Rotation />
-      <RankingBoard />
+      <RankingBoard type="main" />
     </S_Main>
   );
 }
