@@ -27,7 +27,7 @@ const S_Div = styled.div`
   align-items: center;
 
   .first {
-    padding: 20px 0;
+    padding: 15px 0 4px 0;
   }
 
   .flex {

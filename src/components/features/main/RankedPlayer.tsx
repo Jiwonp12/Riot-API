@@ -58,7 +58,7 @@ const S_Li = styled.li`
   display: flex;
   align-items: center;
   border-top: 1px solid var(--color-white3);
-  padding: 10px 0;
+  padding: 4px 0;
 
   .p_idx {
     color: var(--color-gray);

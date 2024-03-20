@@ -69,7 +69,7 @@ const S_Section = styled.section`
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
-  margin: 60px 0 20px 0;
+  margin: 40px 0 20px 0;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 
   ul {
@@ -81,9 +81,9 @@ const S_Section = styled.section`
     justify-content: center;
     align-items: center;
     width: 100%;
-    font-size: 20px;
+    font-size: 14px;
     color: var(--color-dark);
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: 1px solid var(--color-white3);
   }
 

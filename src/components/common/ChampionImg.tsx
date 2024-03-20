@@ -57,29 +57,29 @@ const S_figure = styled.figure`
 
   span {
     position: absolute;
-    padding: 4px;
+    padding: 2px;
     background: var(--color-dark);
     border-radius: 50%;
-    bottom: ${({ className }) => (className === "small" ? "-3px" : "0")};
+    bottom: ${({ className }) => (className === "small" ? "-2px" : "0")};
     right: ${({ className }) => (className === "small" ? "" : "0")};
-    left: ${({ className }) => (className === "small" ? "-8px" : "")};
+    left: ${({ className }) => (className === "small" ? "-4px" : "")};
     color: var(--color-white);
   }
 
   img {
     width: ${({ className }) =>
       className === "rotation"
-        ? "90px"
+        ? "60px"
         : className === "all"
         ? "60px"
         : className === "small"
-        ? "40px"
-        : "70px"};
+        ? "30px"
+        : "50px"};
     border-radius: ${({ className }) =>
       className === "rotation" || className === "all" ? "4px" : "50%"};
     margin: ${({ className }) =>
       className === "rotation"
-        ? "0 10px"
+        ? "0 4px"
         : className === "all"
         ? "0 1.7px"
         : "0"};

@@ -44,9 +44,8 @@ function SearchBar({ location }: { location: string }) {
 export default SearchBar;
 
 const S_Label = styled.label`
-  width: ${({ className }) => (className === "/" ? "800px" : "1210px")};
-  max-width: ${({ className }) => (className === "/" ? "800px" : "1210px")};
-  height: ${({ className }) => (className === "/" ? "60px" : "40px")};
+  width: ${({ className }) => (className === "/" ? "800px" : "100%")};
+  height: ${({ className }) => (className === "/" ? "50px" : "40px")};
   display: flex;
   align-self: ${({ className }) => (className === "/" ? "center" : "")};
   position: relative;
@@ -59,7 +58,6 @@ const S_Label = styled.label`
     background: var(--color-white);
     border: 1px solid var(--color-white);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
-    font-size: 16px;
     position: relative;
     text-align: ${({ className }) => (className === "/" ? "center" : "")};
     cursor: url(${cursorHover}) 0 0, auto;

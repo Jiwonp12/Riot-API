@@ -17,7 +17,7 @@ function SearchedPlayerHeader({ data }: { data: Player }) {
       </figure>
       <div className="flex_col">
         <strong>{data.name}</strong>
-        <p>last play : {days}</p>
+        <p className="p_time">last play: {days}</p>
       </div>
     </S_Section>
   );
@@ -27,7 +27,7 @@ export default SearchedPlayerHeader;
 
 const S_Section = styled.section`
   display: flex;
-  padding: 40px 99px;
+  padding: 20px 99px;
   background: var(--color-white);
   border: 1px solid var(--color-white3);
 
@@ -39,28 +39,32 @@ const S_Section = styled.section`
     position: absolute;
     padding: 4px;
     background: var(--color-dark);
-    border-radius: 4px;
-    bottom: 10px;
-    right: 8px;
+    border-radius: 8px;
+    bottom: -5px;
+    right: -10px;
     color: var(--color-white);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
   }
 
   figure > img {
-    width: 200px;
+    width: 100px;
     border-radius: 20px;
-    border: 3px solid var(--color-white);
+    border: 2px solid var(--color-white);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
   }
 
   .flex_col {
     display: flex;
     flex-direction: column;
-    margin: 0 28px;
+    margin: 0 30px;
 
     strong {
-      font-size: 28px;
+      font-size: 24px;
       margin-bottom: 8px;
+    }
+
+    .p_time {
+      color: var(--color-gray);
     }
   }
 `;

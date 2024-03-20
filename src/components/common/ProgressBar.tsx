@@ -19,6 +19,7 @@ function ProgressBar({ num, max }: { num: number; max: number }) {
 export default ProgressBar;
 
 const S_Wrap = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
 
@@ -34,6 +35,7 @@ const S_Div = styled.div<Percent>`
   background: var(--color-red2);
   border-radius: 4px;
   position: relative;
+  margin-left: 40px;
 
   .div_bar {
     background: var(--color-blue2);
@@ -48,12 +50,12 @@ const S_Div = styled.div<Percent>`
   }
 
   .p_win {
-    top: 0;
-    left: 10px;
+    top: 4px;
+    left: 6px;
   }
 
   .p_lose {
-    top: 0;
-    right: 10px;
+    top: 4px;
+    right: 6px;
   }
 `;

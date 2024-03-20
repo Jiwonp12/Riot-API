@@ -17,8 +17,8 @@ function TierImg({ tier }: { tier: string }) {
 export default TierImg;
 
 const S_figure = styled.figure`
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   background: var(--color-white2);
   border-radius: 50%;
   img {
@@ -29,8 +29,8 @@ const S_figure = styled.figure`
 `;
 
 const S_Empty = styled.figure`
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   background: var(--color-white2);
   border-radius: 50%;
 `;

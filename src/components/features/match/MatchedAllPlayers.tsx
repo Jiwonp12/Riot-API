@@ -53,19 +53,20 @@ export default MatchedAllPlayers;
 
 const S_Div = styled.div`
   display: flex;
-  margin-left: 20px;
 
   .team {
     display: flex;
     flex-direction: column;
-    padding-left: 12px;
+    padding-left: 10px;
 
     .img_with_name {
       display: flex;
       align-items: center;
 
       .name {
-        width: 130px;
+        display: flex;
+        align-items: center;
+        width: 80px;
         height: 20px;
         overflow: hidden;
         text-overflow: ellipsis;

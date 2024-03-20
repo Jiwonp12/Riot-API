@@ -30,11 +30,9 @@ const S_Tag = styled.div`
   display: flex;
   align-items: center;
   align-self: center;
-  padding: 0 12px;
+  padding: 3px 6px;
   background: var(--color-red2);
   color: var(--color-white);
   border-radius: 24px;
-  font-size: 14px;
-  height: 28px;
   margin-left: 8px;
 `;
