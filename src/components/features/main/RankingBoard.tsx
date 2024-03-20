@@ -18,14 +18,17 @@ const Ranking = () => {
         <b className="w_240">전적</b>
       </div>
       <ul>
-        {soloRank.slice(0, 10).map((player: Challenger, idx: number) => (
-          <RankedPlayer
-            key={player.summonerId}
-            summonerId={player.summonerId}
-            player={player}
-            idx={idx}
-          />
-        ))}
+        {soloRank &&
+          soloRank
+            .slice(0, 10)
+            .map((player: Challenger, idx: number) => (
+              <RankedPlayer
+                key={player.summonerId}
+                summonerId={player.summonerId}
+                player={player}
+                idx={idx}
+              />
+            ))}
       </ul>
     </S_Section>
   );

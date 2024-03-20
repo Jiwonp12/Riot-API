@@ -4,6 +4,7 @@ import { Challenger } from "@/types/types";
 import { gameVersion } from "@/constant/constant";
 import cursorHover from "@/assets/CursorHover.png";
 import ProgressBar from "@/components/common/ProgressBar";
+import { useNavigate } from "react-router";
 
 const RankedPlayer = ({
   summonerId,
@@ -15,12 +16,21 @@ const RankedPlayer = ({
   idx: number;
 }) => {
   const { isLoading, isSuccess, data } = useGetSummonerBySummonerId(summonerId);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (data.name === "") {
+      alert("찾을 수 없는 소환사입니다.");
+    } else {
+      navigate(`/search/summoners/${data.name}`);
+    }
+  };
 
   if (isLoading) return <S_Loading />;
 
   if (isSuccess) {
     return (
-      <S_Li>
+      <S_Li onClick={handleClick}>
         <p className="p_idx w_50">{idx + 1}</p>
         <div className="w_380">
           <figure>
