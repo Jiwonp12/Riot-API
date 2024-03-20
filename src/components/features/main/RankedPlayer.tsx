@@ -14,7 +14,9 @@ const RankedPlayer = ({
   player: Challenger;
   idx: number;
 }) => {
-  const { isSuccess, data } = useGetSummonerBySummonerId(summonerId);
+  const { isLoading, isSuccess, data } = useGetSummonerBySummonerId(summonerId);
+
+  if (isLoading) return <S_Loading />;
 
   if (isSuccess) {
     return (
@@ -33,8 +35,6 @@ const RankedPlayer = ({
         <p className="w_80">{player.leaguePoints} LP</p>
         <div className="w_240">
           <ProgressBar num={player.wins} max={player.wins + player.losses} />
-          {/* <p>{player.wins}W</p>
-          <p>{player.losses}L</p> */}
         </div>
       </S_Li>
     );
@@ -102,4 +102,13 @@ const S_Li = styled.li`
     align-items: center;
     width: 380px;
   }
+`;
+
+const S_Loading = styled.li`
+  width: 100%;
+  height: 61px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--color-white3);
+  padding: 10px 0;
 `;

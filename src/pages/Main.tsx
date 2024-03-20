@@ -14,7 +14,7 @@ import {
 } from "../atoms/atom";
 import { Challenger, Spell } from "../types/types";
 import Rotation from "../components/features/main/Rotation";
-import Ranking from "@/components/features/main/Ranking";
+import RankingBoard from "@/components/features/main/RankingBoard";
 import useGetChallengerSoloData from "@/queries/data/useGetChallenger";
 import useGetChallengerFreeData from "@/queries/data/useGetChallengerFreeData";
 
@@ -83,7 +83,7 @@ function Main() {
   return (
     <S_Main>
       <Rotation />
-      <Ranking />
+      <RankingBoard />
     </S_Main>
   );
 }

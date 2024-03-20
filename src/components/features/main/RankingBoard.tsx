@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
-import { freeRankAtom, soloRankAtom } from "@/atoms/atom";
+import { soloRankAtom } from "@/atoms/atom";
 import { Challenger } from "@/types/types";
 import RankedPlayer from "@/components/features/main/RankedPlayer";
 
 const Ranking = () => {
   const [soloRank] = useRecoilValue(soloRankAtom);
-  const [freeRank] = useRecoilValue(freeRankAtom);
-  console.log(freeRank);
 
   return (
     <S_Section>
