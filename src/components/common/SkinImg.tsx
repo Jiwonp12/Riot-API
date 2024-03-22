@@ -13,14 +13,16 @@ function SkinImg({ champion }: { champion: ChampionDetailType }) {
   };
 
   return (
-    <S_figure>
+    <S_figure onClick={handleClick}>
       <img
         src={`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_${skinState.num}.jpg`}
         alt={`${
           skinState.name === "default" ? champion.name : skinState.name
         } img`}
-        onClick={handleClick}
       />
+      <span className="span_name">
+        {skinState.name === "default" ? champion.name : skinState.name}
+      </span>
     </S_figure>
   );
 }
@@ -29,12 +31,38 @@ export default SkinImg;
 
 const S_figure = styled.figure`
   position: relative;
+  width: 150px;
+  height: 272.73px;
+  cursor: url(${cursorHover}) 0 0, auto;
+
+  &:hover {
+    .span_name {
+      color: var(--color-bg);
+      border: 1px solid var(--color-bg2);
+    }
+  }
 
   img {
-    width: 308px;
-    height: 560px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
-    cursor: url(${cursorHover}) 0 0, auto;
+  }
+
+  .span_name {
+    display: flex;
+    justify-content: center;
+    width: 140px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px;
+    color: var(--color-white);
+    background: var(--color-dark);
+    border: 1px solid var(--color-gray);
+    border-radius: 4px;
+    font-size: 10px;
   }
 `;

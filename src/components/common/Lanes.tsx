@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { lanes } from "@/constant/constant";
 import { Tooltip } from "react-tooltip";
 import { LanesProps } from "@/types/types";
+import cursorHover from "@/assets/CursorHover.png";
 
 const Lanes: React.FC<LanesProps> = ({ click }) => {
   return (
@@ -31,15 +32,15 @@ const Lanes: React.FC<LanesProps> = ({ click }) => {
 export default Lanes;
 
 const S_Header = styled.header`
-  max-width: 440px;
+  max-width: 370px;
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin-bottom: 10px;
 `;
 
 const S_figure = styled.figure`
-  width: 46px;
-  height: 46px;
+  width: 28px;
+  height: 28px;
   border: 1px solid var(--color-bg2);
   border-radius: 4px;
   background: var(--color-white);
@@ -54,6 +55,7 @@ const S_figure = styled.figure`
 
   img:hover {
     filter: grayscale(0);
+    cursor: url(${cursorHover}) 0 0, auto;
   }
 `;
 

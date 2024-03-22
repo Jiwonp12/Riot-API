@@ -71,18 +71,14 @@ const S_figure = styled.figure`
       className === "rotation"
         ? "60px"
         : className === "all"
-        ? "60px"
+        ? "26px"
         : className === "small"
         ? "30px"
         : "50px"};
     border-radius: ${({ className }) =>
       className === "rotation" || className === "all" ? "4px" : "50%"};
     margin: ${({ className }) =>
-      className === "rotation"
-        ? "0 4px"
-        : className === "all"
-        ? "0 1.7px"
-        : "0"};
+      className === "rotation" ? "0 4px" : className === "all" ? "0 " : "0"};
     box-shadow: ${({ className }) =>
       className === "rotation" || className === "all"
         ? " 0 2px 2px 0 rgba(0, 0, 0, 0.19)"

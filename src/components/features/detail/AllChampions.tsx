@@ -43,13 +43,15 @@ function AllChampions() {
 export default AllChampions;
 
 const S_Aside = styled.aside`
-  width: 370px;
+  width: 220px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: var(--color-bg);
+  background: var(--color-white);
   border-radius: 8px;
-  padding: 10px 20px;
+  padding: 10px;
+  margin-left: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 
   .content {
     display: flex;

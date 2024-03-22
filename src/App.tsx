@@ -9,7 +9,6 @@ const Root = lazy(() => import("@/pages/Root"));
 const Main = lazy(() => import("@/pages/Main"));
 const Search = lazy(() => import("@/pages/Search"));
 const Champions = lazy(() => import("@/pages/Champions"));
-const ChampionDetail = lazy(() => import("@/pages/ChampionDetail"));
 const Ranking = lazy(() => import("@/pages/Ranking"));
 
 const router = createBrowserRouter([
@@ -38,18 +37,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/champions",
-        element: (
-          <Suspense>
-            <Champions />
-          </Suspense>
-        ),
-      },
-      {
         path: "/champions/:champion",
         element: (
           <Suspense>
-            <ChampionDetail />
+            <Champions />
           </Suspense>
         ),
       },

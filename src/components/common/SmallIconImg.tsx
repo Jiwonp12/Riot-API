@@ -205,9 +205,9 @@ export default SmallIconImg;
 
 const S_figure = styled.figure`
   width: ${({ className }) =>
-    className === "large" ? "80px" : className === "small" ? "20px" : "22px"};
+    className === "large" ? "54px" : className === "small" ? "20px" : "22px"};
   height: ${({ className }) =>
-    className === "large" ? "80px" : className === "small" ? "20px" : "22px"};
+    className === "large" ? "54px" : className === "small" ? "20px" : "22px"};
   border: 1px solid var(--color-white);
   margin: 0 1px 0;
   border-radius: 4px;
@@ -225,9 +225,9 @@ const S_figure = styled.figure`
 
 const S_Empty = styled.figure`
   width: ${({ className }) =>
-    className === "large" ? "80px" : className === "small" ? "20px" : "22px"};
+    className === "large" ? "54px" : className === "small" ? "20px" : "22px"};
   height: ${({ className }) =>
-    className === "large" ? "80px" : className === "small" ? "20px" : "22px"};
+    className === "large" ? "54px" : className === "small" ? "20px" : "22px"};
   border: 1px solid var(--color-white);
   margin: 0 1px 0;
   border-radius: 4px;

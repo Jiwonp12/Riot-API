@@ -21,7 +21,7 @@ export const gameVersion = "14.5.1";
 
 export const navLists = [
   { text: "홈", path: "/" },
-  { text: "챔피언 정보", path: "/champions" },
+  { text: "챔피언 정보", path: "/champions/Garen" },
   { text: "랭킹", path: "/ranking" },
 ];
 
