@@ -44,12 +44,12 @@ function SearchBar({ location }: { location: string }) {
 export default SearchBar;
 
 const S_Label = styled.label`
-  width: ${({ className }) => (className === "/" ? "800px" : "100%")};
+  width: ${({ className }) => (className === "/" ? "800px" : "953px")};
   height: ${({ className }) => (className === "/" ? "50px" : "40px")};
   display: flex;
   align-self: ${({ className }) => (className === "/" ? "center" : "")};
   position: relative;
-  margin-top: 20px;
+  margin: 0 auto;
 
   input {
     width: 100%;

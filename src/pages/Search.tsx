@@ -27,6 +27,10 @@ function Search() {
 export default Search;
 
 const S_Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   .content {
     display: flex;
     margin: 0 100px;
