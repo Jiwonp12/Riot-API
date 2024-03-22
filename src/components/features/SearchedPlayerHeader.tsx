@@ -8,16 +8,18 @@ function SearchedPlayerHeader({ data }: { data: Player }) {
 
   return (
     <S_Section>
-      <figure>
-        <span>{data.summonerLevel}</span>
-        <img
-          src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/profileicon/${data.profileIconId}.png`}
-          alt="summoner icon"
-        />
-      </figure>
-      <div className="flex_col">
-        <strong>{data.name}</strong>
-        <p className="p_time">last play: {days}</p>
+      <div className="div_content">
+        <figure>
+          <span>{data.summonerLevel}</span>
+          <img
+            src={`https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/profileicon/${data.profileIconId}.png`}
+            alt="summoner icon"
+          />
+        </figure>
+        <div className="flex_col">
+          <strong>{data.name}</strong>
+          <p className="p_time">last play: {days}</p>
+        </div>
       </div>
     </S_Section>
   );
@@ -26,10 +28,17 @@ function SearchedPlayerHeader({ data }: { data: Player }) {
 export default SearchedPlayerHeader;
 
 const S_Section = styled.section`
+  width: 100%;
   display: flex;
-  padding: 20px 99px;
+  justify-content: center;
+  padding: 20px 0;
   background: var(--color-white);
   border: 1px solid var(--color-white3);
+
+  .div_content {
+    width: 953px;
+    display: flex;
+  }
 
   figure {
     position: relative;

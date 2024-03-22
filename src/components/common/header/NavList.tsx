@@ -27,8 +27,9 @@ function NavList() {
 export default NavList;
 
 const S_Ul = styled.ul`
+  width: 953px;
   display: flex;
-  margin-bottom: 4px;
+  margin-bottom: 20px;
 
   li {
     font-size: 14px;

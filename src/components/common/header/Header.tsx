@@ -22,5 +22,11 @@ const S_Header = styled.header`
   display: flex;
   flex-direction: column;
   background: var(--color-bg);
-  padding: 20px 100px;
+  padding: 20px 0;
+  min-width: 1080px;
+
+  nav {
+    display: flex;
+    justify-content: center;
+  }
 `;
