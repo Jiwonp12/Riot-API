@@ -44,9 +44,9 @@ export default AllChampions;
 
 const S_Aside = styled.aside`
   width: 220px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background: var(--color-white);
   border-radius: 8px;
   padding: 10px;

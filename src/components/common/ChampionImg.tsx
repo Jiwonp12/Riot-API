@@ -54,6 +54,14 @@ export default ChampionImg;
 
 const S_figure = styled.figure`
   position: relative;
+  width: ${({ className }) =>
+    className === "rotation"
+      ? "60px"
+      : className === "all"
+      ? "26px"
+      : className === "small"
+      ? "30px"
+      : "50px"};
 
   span {
     position: absolute;
@@ -65,16 +73,8 @@ const S_figure = styled.figure`
     left: ${({ className }) => (className === "small" ? "-4px" : "")};
     color: var(--color-white);
   }
-
   img {
-    width: ${({ className }) =>
-      className === "rotation"
-        ? "60px"
-        : className === "all"
-        ? "26px"
-        : className === "small"
-        ? "30px"
-        : "50px"};
+    width: 100%;
     border-radius: ${({ className }) =>
       className === "rotation" || className === "all" ? "4px" : "50%"};
     margin: ${({ className }) =>

@@ -16,5 +16,4 @@ const S_Main = styled.main`
   flex-direction: column;
   align-items: center;
   background: var(--color-bg);
-  padding: 20px 100px;
 `;
