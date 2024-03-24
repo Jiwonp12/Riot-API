@@ -67,6 +67,7 @@ const S_Nav = styled.nav`
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px;
 
   header {
     font-size: 14px;

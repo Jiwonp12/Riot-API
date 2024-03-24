@@ -69,7 +69,7 @@ const S_Section = styled.section`
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
-  margin: 40px 0 20px 0;
+  margin: 20px 0 20px 0;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 
   ul {
@@ -123,15 +123,15 @@ const S_Section = styled.section`
 
   .div_button {
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--color-white3);
   }
 
   .b_solo,
   .b_free {
-    color: var(--color-dark);
-    font-size: 20px;
-    padding: 20px;
+    color: var(--color-gray);
+    font-size: 14px;
+    padding: 10px;
   }
 
   .b_solo:hover,
