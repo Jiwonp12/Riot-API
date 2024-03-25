@@ -28,7 +28,11 @@ function Search() {
   if (tagIsSuccess && isSuccess) {
     return (
       <S_Main>
-        <SearchedPlayerHeader data={data} gameName={tagData?.gameName} />
+        <SearchedPlayerHeader
+          data={data}
+          gameName={tagData?.gameName}
+          tagLine={tagData?.tagLine}
+        />
         <div className="content">
           <MatchAside id={data.id} />
           <Matches puuid={data.puuid} gameName={tagData?.gameName} />

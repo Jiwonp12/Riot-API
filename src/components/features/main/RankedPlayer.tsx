@@ -42,7 +42,7 @@ const RankedPlayer = ({
             />
           </figure>
           <b>{tagData.gameName}</b>
-          <p className="p_tag">{tagData.tagLine}</p>
+          <p className="p_tag">#{tagData.tagLine}</p>
         </div>
         <p className="p_lv w_50">{data.summonerLevel}</p>
         <p className="w_80">{player.leaguePoints} LP</p>

@@ -26,12 +26,14 @@ import MatchDetail from "@/components/features/match/MatchDetail";
 import { findSubRune, findMainRune } from "@/utils/findRune";
 
 function Match({ matchId, gameName }: { matchId: string; gameName: string }) {
-  const { isSuccess, data } = useGetMatchesInfoQuery(matchId);
+  const { isLoading, isSuccess, data } = useGetMatchesInfoQuery(matchId);
   const spells = useRecoilValue(spellAtom);
   const runes = useRecoilValue(runeAtom);
   const items = useRecoilValue(itemAtom);
   const champions = useRecoilValue(championAtom);
   const [buttonState, setButtonState] = useState(false);
+
+  if (isLoading) return <S_Loading />;
 
   if (isSuccess) {
     const days = calculateDays(data.info.gameEndTimestamp);
@@ -228,4 +230,11 @@ const S_Button = styled.div`
       cursor: url(${cursorHover}) 0 0, auto;
     }
   }
+`;
+
+const S_Loading = styled.article`
+  width: 643px;
+  height: 130px;
+  margin-top: 10px;
+  background: var(--color-white3);
 `;

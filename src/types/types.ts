@@ -11,6 +11,7 @@ export type Player = {
 export type Participants = {
   summonerName: string;
   riotIdGameName: string;
+  riotIdTagline: string;
   assists: number;
   championId: number;
   champLevel: number;
