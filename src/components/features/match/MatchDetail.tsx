@@ -6,12 +6,40 @@ import { championAtom, itemAtom, runeAtom, spellAtom } from "@/atoms/atom";
 import ChampionImg from "@/components/common/ChampionImg";
 import SmallIconImg from "@/components/common/SmallIconImg";
 import { findMainRune, findSubRune } from "@/utils/findRune";
+import { useNavigate } from "react-router";
+import cursorHover from "@/assets/CursorHover.png";
+import ProgressBar from "@/components/common/ProgressBar";
 
 function MatchDetail({ data }: { data: Participants[] }) {
   const champions = useRecoilValue(championAtom);
   const spells = useRecoilValue(spellAtom);
   const runes = useRecoilValue(runeAtom);
   const items = useRecoilValue(itemAtom);
+  const navigate = useNavigate();
+
+  const maxDamage = (isWin: boolean) =>
+    Math.max(
+      ...data
+        .filter(player => player.win === isWin)
+        .map(player => player.totalDamageDealtToChampions),
+      0
+    );
+
+  const maxDamageTaken = (isWin: boolean) =>
+    Math.max(
+      ...data
+        .filter(player => player.win === isWin)
+        .map(player => player.totalDamageTaken),
+      0
+    );
+
+  const handleClick = (riotIdGameName: string) => {
+    if (riotIdGameName === "") {
+      alert("찾을 수 없는 소환사입니다.");
+    } else {
+      navigate(`/search/summoners/${riotIdGameName}`);
+    }
+  };
 
   return (
     <S_Table>
@@ -69,7 +97,12 @@ function MatchDetail({ data }: { data: Participants[] }) {
             </div>
           </div>
           <div className="w_100">
-            <b className="b_name">{player.riotIdGameName}</b>
+            <b
+              className="b_name"
+              onClick={() => handleClick(player.riotIdGameName)}
+            >
+              {player.riotIdGameName}
+            </b>
           </div>
           <div className="div_kda w_106">
             <p>{`${player.kills} / ${player.deaths} / ${player.assists}`}</p>
@@ -81,10 +114,16 @@ function MatchDetail({ data }: { data: Participants[] }) {
             </p>
           </div>
           <div className="div_damage w_106">
-            <b className={`b_attack ${player.win ? "b_win" : "b_lose"}`}>
-              {player.totalDamageDealtToChampions}
-            </b>
-            <b className="b_deffence">{player.totalDamageTaken}</b>
+            <ProgressBar
+              num={player.totalDamageDealtToChampions}
+              max={maxDamage(player.win)}
+              type="damage"
+            />
+            <ProgressBar
+              num={player.totalDamageTaken}
+              max={maxDamageTaken(player.win)}
+              type="taken"
+            />
           </div>
           <p className="p_cs w_40">
             {player.neutralMinionsKilled + player.totalMinionsKilled}
@@ -173,6 +212,11 @@ const S_Table = styled.div`
 
   .b_name {
     width: 100%;
+    color: var(--color-gray);
+  }
+
+  .b_name:hover {
+    cursor: url(${cursorHover}) 0 0, auto;
     color: var(--color-dark);
   }
 
@@ -183,22 +227,6 @@ const S_Table = styled.div`
 
   .div_damage {
     align-items: center;
-
-    .b_attack {
-      margin-right: 12px;
-    }
-
-    .b_attack.b_win {
-      color: var(--color-blue2);
-    }
-
-    .b_attack.b_lose {
-      color: var(--color-red2);
-    }
-
-    .b_deffence {
-      color: var(--color-gray);
-    }
   }
 
   .p_cs {

@@ -44,7 +44,11 @@ const RankedPlayer = ({
         <p className="p_lv w_50">{data.summonerLevel}</p>
         <p className="w_80">{player.leaguePoints} LP</p>
         <div className="w_240">
-          <ProgressBar num={player.wins} max={player.wins + player.losses} />
+          <ProgressBar
+            num={player.wins}
+            max={player.wins + player.losses}
+            type="win"
+          />
         </div>
       </S_Li>
     );

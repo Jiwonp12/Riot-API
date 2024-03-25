@@ -303,7 +303,3 @@ export type Challenger = {
   veteran: boolean;
   wins: number;
 };
-
-export type Percent = {
-  percent: number;
-};

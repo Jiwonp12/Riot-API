@@ -93,3 +93,10 @@ export const GetSummonerBySummonerId = (summonerId: string) =>
       `https://kr.api.riotgames.com/lol/summoner/v4/summoners/${summonerId}?api_key=${key}`
     )
     .then(res => res.data);
+
+export const GetSummonerByTagName = (summonerName: string, tag: string) =>
+  axios
+    .get(
+      `http://localhost:3000/riot-proxy?summonerName=${summonerName}&tag=${tag}`
+    )
+    .then(res => res.data);
