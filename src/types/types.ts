@@ -303,3 +303,9 @@ export type Challenger = {
   veteran: boolean;
   wins: number;
 };
+
+export type TagData = {
+  gameNmae: string;
+  puuid: string;
+  tagLine: string;
+};

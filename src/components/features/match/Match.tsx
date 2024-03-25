@@ -17,7 +17,6 @@ import {
 } from "../../../utils/calculatePlayTime";
 import KillTypesTag from "../../common/KillTypesTag";
 import MatchedAllPlayers from "./MatchedAllPlayers";
-import { useParams } from "react-router-dom";
 import { findChampion } from "../../../utils/findChampions";
 import open from "@/assets/Open.png";
 import close from "@/assets/Close.png";
@@ -26,9 +25,8 @@ import { useState } from "react";
 import MatchDetail from "@/components/features/match/MatchDetail";
 import { findSubRune, findMainRune } from "@/utils/findRune";
 
-function Match({ matchId }: { matchId: string }) {
+function Match({ matchId, gameName }: { matchId: string; gameName: string }) {
   const { isSuccess, data } = useGetMatchesInfoQuery(matchId);
-  const { summoner = "" } = useParams<{ summoner?: string }>();
   const spells = useRecoilValue(spellAtom);
   const runes = useRecoilValue(runeAtom);
   const items = useRecoilValue(itemAtom);
@@ -40,8 +38,7 @@ function Match({ matchId }: { matchId: string }) {
     const minutes = calculateMinutes(data.info.gameDuration);
 
     const [player] = data.info.participants.filter(
-      (key: Participants) =>
-        key.summonerName.toLowerCase() === summoner.toLowerCase()
+      (key: Participants) => key.riotIdGameName === gameName
     );
     const champion = findChampion(champions[0], player.championId);
     const kda = `${player.kills} / ${player.deaths} / ${player.assists}`;

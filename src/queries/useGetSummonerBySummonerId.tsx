@@ -6,6 +6,7 @@ const useGetSummonerBySummonerId = (summonerId: string) => {
     queryKey: ["GetSummonerBySummonerId", summonerId],
     queryFn: () => GetSummonerBySummonerId(summonerId),
     refetchOnWindowFocus: false,
+    staleTime: Infinity,
   });
 };
 

@@ -6,6 +6,7 @@ const useGetSummonerByTagName = (summonerName: string, tag: string) => {
     queryKey: ["GetSummonerByTagName", summonerName, tag],
     queryFn: () => GetSummonerByTagName(summonerName, tag),
     refetchOnWindowFocus: false,
+    enabled: !!summonerName && !!tag,
   });
 };
 
