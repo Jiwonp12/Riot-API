@@ -17,7 +17,6 @@ import {
 } from "../../../utils/calculatePlayTime";
 import KillTypesTag from "../../common/KillTypesTag";
 import MatchedAllPlayers from "./MatchedAllPlayers";
-import { useParams } from "react-router-dom";
 import { findChampion } from "../../../utils/findChampions";
 import open from "@/assets/Open.png";
 import close from "@/assets/Close.png";
@@ -26,22 +25,22 @@ import { useState } from "react";
 import MatchDetail from "@/components/features/match/MatchDetail";
 import { findSubRune, findMainRune } from "@/utils/findRune";
 
-function Match({ matchId }: { matchId: string }) {
-  const { isSuccess, data } = useGetMatchesInfoQuery(matchId);
-  const { summoner = "" } = useParams<{ summoner?: string }>();
+function Match({ matchId, gameName }: { matchId: string; gameName: string }) {
+  const { isLoading, isSuccess, data } = useGetMatchesInfoQuery(matchId);
   const spells = useRecoilValue(spellAtom);
   const runes = useRecoilValue(runeAtom);
   const items = useRecoilValue(itemAtom);
   const champions = useRecoilValue(championAtom);
   const [buttonState, setButtonState] = useState(false);
 
+  if (isLoading) return <S_Loading />;
+
   if (isSuccess) {
     const days = calculateDays(data.info.gameEndTimestamp);
     const minutes = calculateMinutes(data.info.gameDuration);
 
     const [player] = data.info.participants.filter(
-      (key: Participants) =>
-        key.summonerName.toLowerCase() === summoner.toLowerCase()
+      (key: Participants) => key.riotIdGameName === gameName
     );
     const champion = findChampion(champions[0], player.championId);
     const kda = `${player.kills} / ${player.deaths} / ${player.assists}`;
@@ -231,4 +230,11 @@ const S_Button = styled.div`
       cursor: url(${cursorHover}) 0 0, auto;
     }
   }
+`;
+
+const S_Loading = styled.article`
+  width: 643px;
+  height: 130px;
+  margin-top: 10px;
+  background: var(--color-white3);
 `;

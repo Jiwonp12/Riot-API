@@ -6,7 +6,7 @@ const key = import.meta.env.VITE_RIOT_API;
 export const GetSummoner = (id: string) =>
   axios
     .get(
-      `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${id}?api_key=${key}`
+      `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${id}?api_key=${key}`
     )
     .then(res => res.data);
 
@@ -97,6 +97,11 @@ export const GetSummonerBySummonerId = (summonerId: string) =>
 export const GetSummonerByTagName = (summonerName: string, tag: string) =>
   axios
     .get(
-      `http://localhost:3000/riot-proxy?summonerName=${summonerName}&tag=${tag}`
+      `http://localhost:3000/riot-tag?summonerName=${summonerName}&tag=${tag}`
     )
+    .then(res => res.data);
+
+export const GetSummonerByAccountId = (puuid: string) =>
+  axios
+    .get(`http://localhost:3000/riot-puuid?puuid=${puuid}`)
     .then(res => res.data);

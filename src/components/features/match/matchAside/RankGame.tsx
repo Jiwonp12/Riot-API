@@ -25,7 +25,15 @@ function RankGame({ type }: { type: RankType }) {
       </S_Content>
     );
   } else {
-    return <></>;
+    return (
+      <S_Content>
+        <p className="queue">{`랭크전적 없음`}</p>
+        <div className="flex">
+          <div className="rank_lp"></div>
+          <div className="win_rate"></div>
+        </div>
+      </S_Content>
+    );
   }
 }
 

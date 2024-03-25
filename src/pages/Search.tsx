@@ -4,24 +4,42 @@ import useGetSummonerQuery from "../queries/useGetSummonerQuery";
 import Matches from "../components/features/Matches";
 import SearchedPlayerHeader from "../components/features/SearchedPlayerHeader";
 import MatchAside from "../components/features/match/matchAside/MatchAside";
+import useGetSummonerByTagName from "@/queries/useGetSummonerByTagName";
 
 function Search() {
-  const { summoner = "" } = useParams<{ summoner: string }>();
-  const { isLoading, data, error } = useGetSummonerQuery(summoner);
+  const { summoner = "", tag = "" } = useParams<{
+    summoner: string;
+    tag: string;
+  }>();
+  const {
+    isLoading: tagDataLoading,
+    isSuccess: tagIsSuccess,
+    data: tagData,
+  } = useGetSummonerByTagName(summoner, tag);
+  const { isLoading, isSuccess, data, error } = useGetSummonerQuery(
+    tagData?.puuid,
+    tagData
+  );
 
-  if (isLoading) return "Loading...";
+  if (tagDataLoading || isLoading) return;
 
   if (error) return <S_Main>찾을수없음</S_Main>;
 
-  return (
-    <S_Main>
-      <SearchedPlayerHeader data={data} />
-      <div className="content">
-        <MatchAside id={data.id} />
-        <Matches puuid={data.puuid} />
-      </div>
-    </S_Main>
-  );
+  if (tagIsSuccess && isSuccess) {
+    return (
+      <S_Main>
+        <SearchedPlayerHeader
+          data={data}
+          gameName={tagData?.gameName}
+          tagLine={tagData?.tagLine}
+        />
+        <div className="content">
+          <MatchAside id={data.id} />
+          <Matches puuid={data.puuid} gameName={tagData?.gameName} />
+        </div>
+      </S_Main>
+    );
+  }
 }
 
 export default Search;

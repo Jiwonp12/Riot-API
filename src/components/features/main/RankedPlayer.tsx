@@ -5,6 +5,7 @@ import { gameVersion } from "@/constant/constant";
 import cursorHover from "@/assets/CursorHover.png";
 import ProgressBar from "@/components/common/ProgressBar";
 import { useNavigate } from "react-router";
+import useGetSummonerByAccountId from "@/queries/useGetSummonerByAccountId";
 
 const RankedPlayer = ({
   summonerId,
@@ -16,19 +17,20 @@ const RankedPlayer = ({
   idx: number;
 }) => {
   const { isLoading, isSuccess, data } = useGetSummonerBySummonerId(summonerId);
+  const {
+    isLoading: tagIsLoading,
+    isSuccess: tagIsSuccess,
+    data: tagData,
+  } = useGetSummonerByAccountId(data?.puuid, data);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (data.name === "") {
-      alert("찾을 수 없는 소환사입니다.");
-    } else {
-      navigate(`/search/summoners/${data.name}`);
-    }
+    navigate(`/search/summoners/${tagData.gameName}/${tagData.tagLine}`);
   };
 
-  if (isLoading) return <S_Loading />;
+  if (isLoading && tagIsLoading) return <S_Loading />;
 
-  if (isSuccess) {
+  if (isSuccess && tagIsSuccess) {
     return (
       <S_Li onClick={handleClick}>
         <p className="p_idx w_50">{idx + 1}</p>
@@ -39,7 +41,8 @@ const RankedPlayer = ({
               alt="summoner icon"
             />
           </figure>
-          <b>{data.name}</b>
+          <b>{tagData.gameName}</b>
+          <p className="p_tag">#{tagData.tagLine}</p>
         </div>
         <p className="p_lv w_50">{data.summonerLevel}</p>
         <p className="w_80">{player.leaguePoints} LP</p>
@@ -67,6 +70,11 @@ const S_Li = styled.li`
   .p_idx {
     color: var(--color-gray);
     justify-content: center;
+  }
+
+  .p_tag {
+    margin-left: 8px;
+    color: var(--color-blue2);
   }
 
   figure {

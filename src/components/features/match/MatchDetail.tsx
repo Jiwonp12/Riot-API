@@ -33,12 +33,8 @@ function MatchDetail({ data }: { data: Participants[] }) {
       0
     );
 
-  const handleClick = (riotIdGameName: string) => {
-    if (riotIdGameName === "") {
-      alert("찾을 수 없는 소환사입니다.");
-    } else {
-      navigate(`/search/summoners/${riotIdGameName}`);
-    }
+  const handleClick = (riotIdGameName: string, riotIdTagline: string) => {
+    navigate(`/search/summoners/${riotIdGameName}/${riotIdTagline}`);
   };
 
   return (
@@ -99,7 +95,9 @@ function MatchDetail({ data }: { data: Participants[] }) {
           <div className="w_100">
             <b
               className="b_name"
-              onClick={() => handleClick(player.riotIdGameName)}
+              onClick={() =>
+                handleClick(player.riotIdGameName, player.riotIdTagline)
+              }
             >
               {player.riotIdGameName}
             </b>

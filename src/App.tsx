@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "search/summoners/:summoner",
+        path: "search/summoners/:summoner/:tag",
         element: (
           <Suspense>
             <Search />

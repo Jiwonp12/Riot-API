@@ -11,6 +11,7 @@ export type Player = {
 export type Participants = {
   summonerName: string;
   riotIdGameName: string;
+  riotIdTagline: string;
   assists: number;
   championId: number;
   champLevel: number;
@@ -302,4 +303,10 @@ export type Challenger = {
   summonerName: string;
   veteran: boolean;
   wins: number;
+};
+
+export type TagData = {
+  gameNmae: string;
+  puuid: string;
+  tagLine: string;
 };

@@ -1,24 +1,42 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Search from "@/assets/Search.png";
 import cursorHover from "@/assets/CursorHover.png";
 
 function SearchBar({ location }: { location: string }) {
-  const [summonerInput, setSummonerInput] = useState("");
+  const [summonerInput, setSummonerInput] = useState({
+    summonerName: "",
+    tag: "",
+  });
   const navigate = useNavigate();
+  const tagRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSummonerInput(e.target.value);
+    const { name, value } = e.target;
+    setSummonerInput({
+      ...summonerInput,
+      [name]: value,
+    });
   };
 
   const handleClick = () => {
-    if (summonerInput.length) {
-      setSummonerInput("");
-      navigate(`/search/summoners/${summonerInput}`);
+    if (!summonerInput.summonerName.length) {
+      alert("플레이어 이름을 입력해주세요.");
+    } else if (!summonerInput.tag.length) {
+      alert("태그를 입력해주세요.");
+      setTimeout(() => {
+        tagRef.current?.focus();
+      }, 0);
+    } else {
+      setSummonerInput({ summonerName: "", tag: "" });
+      navigate(
+        `/search/summoners/${
+          summonerInput.summonerName
+        }/${summonerInput.tag.replace("#", "")}`
+      );
     }
   };
-
   const handleKeyUp = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       handleClick();
@@ -28,12 +46,24 @@ function SearchBar({ location }: { location: string }) {
   return (
     <S_Label className={location}>
       <input
-        value={summonerInput}
+        className="input_name"
+        value={summonerInput.summonerName}
+        name="summonerName"
         type="text"
-        placeholder="소환사명을 입력해주세요."
+        placeholder="플레이어 이름"
         onChange={handleChange}
         onKeyUp={handleKeyUp}
-      ></input>
+      />
+      <input
+        ref={tagRef}
+        className="input_tag"
+        value={summonerInput.tag}
+        name="tag"
+        type="text"
+        placeholder="#KR1"
+        onChange={handleChange}
+        onKeyUp={handleKeyUp}
+      />
       <figure>
         <img src={Search} alt="search icon" onClick={handleClick} />
       </figure>
@@ -51,7 +81,7 @@ const S_Label = styled.label`
   position: relative;
   margin: 0 auto;
 
-  input {
+  .input_name {
     width: 100%;
     padding: 4px 8px;
     border-radius: ${({ className }) => (className === "/" ? "36px" : "4px")};
@@ -74,10 +104,36 @@ const S_Label = styled.label`
     }
   }
 
+  .input_tag {
+    width: ${({ className }) => (className === "/" ? "30%" : "15%")};
+    height: 100%;
+    padding: 4px 8px;
+    border-radius: ${({ className }) => (className === "/" ? "36px" : "4px")};
+    background: var(--color-blue2);
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+    position: absolute;
+    right: 0;
+    text-align: ${({ className }) => (className === "/" ? "center" : "")};
+    cursor: url(${cursorHover}) 0 0, auto;
+
+    &::placeholder {
+      text-align: ${({ className }) => (className === "/" ? "center" : "")};
+      color: var(--color-white);
+    }
+    &:focus {
+      outline: none;
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+
   img {
     width: ${({ className }) => (className === "/" ? "44px" : "32px")};
     position: absolute;
-    right: ${({ className }) => (className === "/" ? "20px" : "8px")};
+    right: ${({ className }) => (className === "/" ? "4px" : "8px")};
     top: 50%;
     transform: translateY(-50%);
   }

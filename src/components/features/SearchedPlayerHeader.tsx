@@ -3,7 +3,15 @@ import { Player } from "../../types/types";
 import { gameVersion } from "../../constant/constant";
 import { calculateDays } from "../../utils/calculatePlayTime";
 
-function SearchedPlayerHeader({ data }: { data: Player }) {
+function SearchedPlayerHeader({
+  data,
+  gameName,
+  tagLine,
+}: {
+  data: Player;
+  gameName: string;
+  tagLine: string;
+}) {
   const days = calculateDays(data.revisionDate);
 
   return (
@@ -17,7 +25,10 @@ function SearchedPlayerHeader({ data }: { data: Player }) {
           />
         </figure>
         <div className="flex_col">
-          <strong>{data.name}</strong>
+          <div className="div_flex">
+            <strong>{gameName}</strong>
+            <p className="p_tag">#{tagLine}</p>
+          </div>
           <p className="p_time">last play: {days}</p>
         </div>
       </div>
@@ -67,9 +78,19 @@ const S_Section = styled.section`
     flex-direction: column;
     margin: 0 30px;
 
-    strong {
-      font-size: 24px;
+    .div_flex {
+      display: flex;
+      align-items: center;
       margin-bottom: 8px;
+
+      strong {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+      .p_tag {
+        font-size: 24px;
+        color: var(--color-blue2);
+      }
     }
 
     .p_time {
