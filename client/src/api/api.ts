@@ -97,11 +97,11 @@ export const GetSummonerBySummonerId = (summonerId: string) =>
 export const GetSummonerByTagName = (summonerName: string, tag: string) =>
   axios
     .get(
-      `http://localhost:3000/riot-tag?summonerName=${summonerName}&tag=${tag}`
+      `https://riot-api-node.vercel.app/riot-tag?summonerName=${summonerName}&tag=${tag}`
     )
     .then(res => res.data);
 
 export const GetSummonerByAccountId = (puuid: string) =>
   axios
-    .get(`http://localhost:3000/riot-puuid?puuid=${puuid}`)
+    .get(`https://riot-api-node.vercel.app/riot-puuid?puuid=${puuid}`)
     .then(res => res.data);
