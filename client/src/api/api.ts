@@ -2,6 +2,7 @@ import axios from "axios";
 import { gameVersion } from "../constant/constant";
 
 const key = import.meta.env.VITE_RIOT_API;
+const url = import.meta.env.VITE_NODE_API;
 
 export const GetSummoner = (id: string) =>
   axios
@@ -96,12 +97,8 @@ export const GetSummonerBySummonerId = (summonerId: string) =>
 
 export const GetSummonerByTagName = (summonerName: string, tag: string) =>
   axios
-    .get(
-      `http://localhost:3000/riot-tag?summonerName=${summonerName}&tag=${tag}`
-    )
+    .get(`${url}/riot-tag?summonerName=${summonerName}&tag=${tag}`)
     .then(res => res.data);
 
 export const GetSummonerByAccountId = (puuid: string) =>
-  axios
-    .get(`http://localhost:3000/riot-puuid?puuid=${puuid}`)
-    .then(res => res.data);
+  axios.get(`${url}/riot-puuid?puuid=${puuid}`).then(res => res.data);
