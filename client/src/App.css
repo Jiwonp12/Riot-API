@@ -1,0 +1,30 @@
+* {
+  list-style: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  min-width: 1080px;
+}
+
+body {
+  background: var(--color-white2);
+  font-size: 10px;
+}
+
+:root {
+  --color-bg: #f4ce14;
+  --color-white: #fcfeff;
+  --color-white2: rgb(238, 237, 237);
+  --color-white3: #dedede;
+  --color-gray: #758592;
+  --color-bg2: #c3ac52;
+  --color-dark: #1d1e20;
+  --color-blue1: #e1e9fb;
+  --color-blue2: #4171d6;
+  --color-red1: #fde1e5;
+  --color-red2: #d31a45;
+  --color-item: #00cfbc;
+}
