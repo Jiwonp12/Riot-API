@@ -1,13 +1,3 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" },
-    { "source": "/riot-tag", "destination": "/api/riot-tag" },
-    { "source": "/riot-puuid", "destination": "/api/riot-puuid" }
-  ],
-  "functions": {
-    "api": {
-      "excludeFiles": ["node_modules/**/*", ".git/**/*"],
-      "runtime": "nodejs12.x"
-    }
-  }
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
