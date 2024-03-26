@@ -11,10 +11,10 @@ export const GetSummoner = (id: string) =>
     )
     .then(res => res.data);
 
-export const GetMatches = (puuid: string) =>
+export const GetMatches = (puuid: string, start: string, count: string) =>
   axios
     .get(
-      `https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=10&api_key=${key}`
+      `https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=${start}&count=${count}&api_key=${key}`
     )
     .then(res => res.data);
 

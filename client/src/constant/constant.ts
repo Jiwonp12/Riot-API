@@ -67,3 +67,6 @@ export const lanes = [
   { key: "Marksman", src: `${Marksman}` },
   { key: "Support", src: `${Support}` },
 ];
+
+export const matchStart = 0;
+export const matchCount = 10;
