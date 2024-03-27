@@ -127,8 +127,8 @@ const S_Li = styled.li`
 `;
 
 const S_Loading = styled.li`
-  width: 100%;
-  height: 61px;
+  width: 800px;
+  height: 48.8px;
   display: flex;
   align-items: center;
   border-top: 1px solid var(--color-white3);
